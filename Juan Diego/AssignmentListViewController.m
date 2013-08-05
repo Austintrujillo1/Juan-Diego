@@ -35,18 +35,6 @@
 }
 
 
-    //      ******************
-    //      * Save File Path *
-    //      ******************
-
-
--(NSString*) saveFilePath{
-    NSString* path = [NSString stringWithFormat:@"%@%@",
-                      [[NSBundle mainBundle] resourcePath],
-                      @"arraySave.plist"];
-    return path;}
-
-
     //      *****************
     //      * View Did Load *
     //      *****************
@@ -56,9 +44,7 @@
 {
     [super viewDidLoad];
 
-    self.assignments = [[NSMutableArray alloc /*arrayWithContentsOfFile:[self saveFilePath]*/] init];
-    
-    [_assignments writeToFile:[self saveFilePath] atomically:YES];
+    self.assignments = [[NSMutableArray alloc] init];
     
     [self setNeedsStatusBarAppearanceUpdate];
     
@@ -160,12 +146,13 @@
 }
 
 
-    //      *****************
+    //      ********************
     //      * View Will Appear *
-    //      *****************
+    //      ********************
 
 
 - (void) viewWillAppear:(BOOL)animated{
+    
     [super viewWillAppear:animated];
     
     [self.tableView reloadData];
@@ -190,6 +177,5 @@
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
-
 
 @end

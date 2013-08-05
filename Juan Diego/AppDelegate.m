@@ -72,6 +72,8 @@
         [currentInstallation saveEventually];
     }
     
+    /*
+    
     [PFGeoPoint geoPointForCurrentLocationInBackground:^(PFGeoPoint *geoPoint, NSError *error) {
         if (!error) {
     
@@ -84,6 +86,8 @@
             [locationClass save];
         }
     }];
+     
+     */
     
     
 }
@@ -99,7 +103,6 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)newDeviceToken {
     // Store the deviceToken in the current installation and save it to Parse.
     PFInstallation *currentInstallation = [PFInstallation currentInstallation];
     [currentInstallation setDeviceTokenFromData:newDeviceToken];
-    
     
     [PFPush subscribeToChannelInBackground:@""];
     [currentInstallation saveInBackground];

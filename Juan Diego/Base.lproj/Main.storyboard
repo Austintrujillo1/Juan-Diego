@@ -603,7 +603,7 @@
                                 <rect key="frame" x="197" y="121" width="51" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
-                                    <action selector="assignmentDataChanged:" destination="lR4-ky-7Aj" eventType="editingChanged" id="2Ly-pj-efk"/>
+                                    <action selector="switchStatus:" destination="lR4-ky-7Aj" eventType="valueChanged" id="Izf-qW-oT9"/>
                                 </connections>
                             </switch>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Complete?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="u4J-Xk-3Gn">
@@ -1929,7 +1929,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="V A 0.0.2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OsP-Qq-1Ko">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="V A 0.3.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OsP-Qq-1Ko">
                                 <rect key="frame" x="136" y="434" width="49" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
@@ -2246,11 +2246,11 @@
                                 <rect key="frame" x="0.0" y="194" width="320" height="110"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.92941176469999998" green="0.94901960780000005" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <mutableString key="text"> Juan Diego Catholic High School exists to teach and promote gospel values to all members of this community of faith, with a special emphasis on Spiritus Donorum (Spirit of Giving). We build the Kingdom of God.
+                                <string key="text"> Juan Diego Catholic High School exists to teach and promote gospel values to all members of this community of faith, with a special emphasis on Spiritus Donorum (Spirit of Giving). We build the Kingdom of God.
 Demonstrate love, respect and responsibility for humanity and ourselves through service, justice and participation in the global community.
 Develop the person; morally, intellectually, emotionally, physically and socially.
 Function in a dynamic collaboration of parents, students, faculty, staff and the greater community to provide a Catholic and academic education that our students will become active Christians.
-</mutableString>
+</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -2258,7 +2258,7 @@ Function in a dynamic collaboration of parents, students, faculty, staff and the
                                 <rect key="frame" x="0.0" y="345" width="320" height="110"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.92941176469999998" green="0.94901960780000005" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <mutableString key="text">
+                                <string key="text">
 Juan Diego Catholic High School students are ACTIVE CHRISTIANS who
 Serve others through their gifts and talents, in their daily lives
 Have knowledge of Church doctrine, social teachings, Scripture, and prayer 
@@ -2279,7 +2279,7 @@ Perform service to their school and community
 Exhibit a sense of social responsibility guided by compassion, confidence and integrity
 Are able to work cooperatively with others
 Cognizant of world affairs and the impact on ones lives
-Exhibit good sportsmanship</mutableString>
+Exhibit good sportsmanship</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>

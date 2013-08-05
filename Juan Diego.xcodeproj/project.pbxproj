@@ -60,6 +60,7 @@
 		A9CA309B177A02ED00B11328 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9CA307A177A02ED00B11328 /* UIKit.framework */; };
 		A9CA30A3177A02ED00B11328 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A9CA30A1177A02ED00B11328 /* InfoPlist.strings */; };
 		A9CA30A5177A02ED00B11328 /* Juan_DiegoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9CA30A4177A02ED00B11328 /* Juan_DiegoTests.m */; };
+		A9F0376917AF4C9500DF4AAB /* splashScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = A9F0376817AF4C9500DF4AAB /* splashScreen.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -139,6 +140,7 @@
 		A9CA30A0177A02ED00B11328 /* Juan DiegoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Juan DiegoTests-Info.plist"; sourceTree = "<group>"; };
 		A9CA30A2177A02ED00B11328 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A9CA30A4177A02ED00B11328 /* Juan_DiegoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Juan_DiegoTests.m; sourceTree = "<group>"; };
+		A9F0376817AF4C9500DF4AAB /* splashScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splashScreen.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -287,6 +289,7 @@
 				A99CCDAC17ACCB1B00098F41 /* InstagramButton.png */,
 				A99CCDAD17ACCB1B00098F41 /* TwitterButton.png */,
 				A9C888D717ADB6D80021DD21 /* Default-568h@2x.png */,
+				A9F0376817AF4C9500DF4AAB /* splashScreen.png */,
 				A9A6218F17A9EC3B00F352AA /* borderpx.png */,
 			);
 			name = "UI Elements";
@@ -473,6 +476,7 @@
 				A97AB45D17A74124003DB7AB /* appIcon@2x.png in Resources */,
 				A97AB45617A73DE8003DB7AB /* Icon-Small@2x.png in Resources */,
 				A9A6219417A9EE5100F352AA /* parseLogo.jpg in Resources */,
+				A9F0376917AF4C9500DF4AAB /* splashScreen.png in Resources */,
 				A9C888D817ADB6D80021DD21 /* Default-568h@2x.png in Resources */,
 				A99CCDAE17ACCB1B00098F41 /* facebookButton.png in Resources */,
 				A99CCD8617AAEB2500098F41 /* pencilTabBarIcon.png in Resources */,

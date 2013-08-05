@@ -20,7 +20,7 @@
 
 - (IBAction) assignmentDataChanged:(id)sender;
 
-
+- (IBAction) switchStatus:(id)sender;
 
 
 @end

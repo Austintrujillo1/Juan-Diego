@@ -46,6 +46,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    self.navigationItem.title = self.assignment.assignmentName;
+    
     self.AssignmentNameField.text = self.assignment.assignmentName;
     self.AssignmentDescriptionField.text = self.assignment.assignmentDescription;
     [self.doneSwitch setOn:self.assignment.done];
@@ -72,17 +74,30 @@
 #pragma mark - IBActions
 
 
-    //      ***************************
-    //      * Assignment Data Changed *
-    //      ***************************
+    //      ********************************
+    //      * Assignment Text Data Changed *
+    //      ********************************
 
 
 - (void)assignmentDataChanged:(id)sender{
     
     self.assignment.assignmentName = self.AssignmentNameField.text;
     self.assignment.assignmentDescription = self.AssignmentDescriptionField.text;
-    self.assignment.done = self.doneSwitch.isOn;
     
+}
+
+//      **********************************
+//      * Assignment Switch Data Changed *
+//      **********************************
+
+- (void) switchStatus:(id)sender{
+    
+    if ([_doneSwitch isOn]) {
+        self.assignment.done = YES;
+    }
+    else{
+        self.assignment.done = NO;
+    }
 }
 
 @end
