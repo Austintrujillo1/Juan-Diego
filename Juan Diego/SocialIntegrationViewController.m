@@ -55,6 +55,16 @@
 }
 
 
+//      ************************
+//      * Facebook Integration *
+//      ************************
+
+
+- (IBAction)youtubeIntegration:(id)sender{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.youtube.com/channel/UCZ6a-KF00z6qW9Xi1WK1k8g"]];
+}
+
+
     //      ***********************
     //      * Twitter Integration *
     //      ***********************

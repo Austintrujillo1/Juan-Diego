@@ -24,11 +24,11 @@
 
 -(void)startWebViewLoad
 {
-    //NSString *urlAddress = @"http://www.jdchs.org/pdfs/2012-2013_Parent_Student_Handbook.pdf";
-    NSString *urlAddress = @"http://www.jdchs.org/pdfs/2012-2013_Parent_Student_Handbook.pdf";
+    
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"Handbook" ofType:@"pdf"];
     
     //Create a URL object.
-    NSURL *url = [NSURL URLWithString:urlAddress];
+    NSURL *url = [NSURL fileURLWithPath:path];
     
     //URL Requst Object
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
@@ -44,7 +44,9 @@
 
 
 -(UIStatusBarStyle)preferredStatusBarStyle{
+
     return UIStatusBarStyleLightContent;
+
 }
 
 
@@ -59,6 +61,7 @@
     
     //call another method to do the webpage loading
     [self performSelector:@selector(startWebViewLoad) withObject:nil afterDelay:0];
+
 }
 
 @end
