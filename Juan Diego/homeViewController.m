@@ -7,29 +7,25 @@
 //
 
 #import "HomeViewController.h"
-#import <Parse/Parse.h>
 #import "AssignmentsViewController.h"
 #import "ISO8601DateFormatter.h"
+#import <Parse/Parse.h>
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
 
 @interface HomeViewController ()
-
 @end
+
 
 @implementation HomeViewController
 
 @synthesize EventArray = _EventArray;
-
+@synthesize LunchArray = _LunchArray;
 @synthesize selectedRow;
-
-
 @synthesize dayLabel = _dayLabel;
-
 @synthesize infinativeLabel = _infinativeLabel;
-
 @synthesize todayLabel = _todayLabel;
-
+@synthesize lunchLabel = _lunchLabel;
 @synthesize tableView = _tableView;
 
 
@@ -41,6 +37,7 @@
 - (UIStatusBarStyle) preferredStatusBarStyle {
     
     return UIStatusBarStyleLightContent;
+    
 }
 
 
@@ -49,9 +46,17 @@
     //      ******************
 
 
-- (IBAction)refreshButton:(id)sender{
+- (IBAction)refreshButton:(id)sender {
         
     [self dayChecker];
+    
+    [self LoadLunchData];
+
+    [self preferredStatusBarStyle];
+
+    [[UIApplication sharedApplication] setStatusBarHidden:NO];
+
+    [self lunchChanger:nil];
     
     [self reloadTableview];
         
@@ -63,42 +68,10 @@
     //      ********************
 
 
--(void)viewWillAppear:(BOOL)animated{
-    
-    [self dayChecker];
-    
-    [self preferredStatusBarStyle];
-    
-    [[UIApplication sharedApplication] setStatusBarHidden:NO];
+-(void)viewWillAppear:(BOOL)animated {
     
     [self performSelector:@selector(refreshButton:) withObject:nil afterDelay: 0.5];
     
-    [self parseLocation];
-
-    
-}
-
-
-    //      ******************
-    //      * Parse Location *
-    //      ******************
-
-
-- (IBAction)parseLocation{
-    
-    [PFGeoPoint geoPointForCurrentLocationInBackground:^(PFGeoPoint *geoPoint, NSError *error) {
-                if (!error) {
-            
-                        PFObject *locationClass = [PFObject objectWithClassName:@"Location"];
-            
-                        NSString *deviceName = [[UIDevice currentDevice] name]; // e.g. "iPod touch"
-            
-                        [locationClass setObject:geoPoint forKey:@"Location"];
-                        [locationClass setObject:deviceName forKey:@"DeviceName"];
-                        [locationClass save];
-                    }
-            }];
-
 }
 
 
@@ -107,11 +80,12 @@
     //      *********************
 
 
-- (void) reloadTableview{
+- (void) reloadTableview {
     
     [self LoadCalendarData];
     
     [_tableView reloadData];
+    
 }
 
 
@@ -120,13 +94,11 @@
     //      ***************
 
     
-- (void) dayChecker
-{
+- (void) dayChecker {
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];    //Declare Formatter
     [formatter setDateFormat:@"MM/dd/YY"];      //Format Date
     NSString *dateToday = [formatter stringFromDate:[NSDate date]];     //get the date today
-
     
     PFQuery *query = [PFQuery queryWithClassName:@"Days"];      //Create Query
     
@@ -135,7 +107,7 @@
     
     [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {    //Get First (and Only) Object From Query
         NSString *day = [object objectForKey:@"Day"];   //Create Object From Part of Array
-        NSLog(@"%@", day);  //Log Day
+        NSLog(@"%@ Day", day);  //Log Day
     
     _dayLabel.text = day;   //Set Label To Day
     _todayLabel.text = @"Day";
@@ -146,24 +118,28 @@
         _infinativeLabel.textColor = [UIColor blackColor];  //Black Color
         _todayLabel.text = @"Day";
     }
+        
     else if ([_dayLabel.text isEqualToString:@"B"]) {   //B Day
         _infinativeLabel.text = @"Today is a";  //Infinative
         _dayLabel.textColor = [UIColor colorWithRed:73.0/255.0 green:134.0/255.0 blue:231.0/255.0 alpha:1]; //Blue Color
         _infinativeLabel.textColor = [UIColor blackColor];  //Black Color
         _todayLabel.text = @"Day";
     }
+        
     else if ([_dayLabel.text isEqualToString:@"C"]) {   //C Day
         _infinativeLabel.text = @"Today is a";  //Infinative
         _dayLabel.textColor = [UIColor colorWithRed:255.0/255.0 green:204.0/255.0 blue:0.0/255.0 alpha:1]; //Yellow Color
         _infinativeLabel.textColor = [UIColor blackColor];  //Clear Color
         _todayLabel.text = @"Day";
     }
+        
     else if ([_dayLabel.text isEqualToString:@"D"]) {   //D Day
         _infinativeLabel.text = @"Today is a";  //Infinative
         _dayLabel.textColor = [UIColor colorWithRed:0.0/255.0 green:203.0/255.0 blue:0.0/255.0 alpha:1]; //Green Color
         _infinativeLabel.textColor = [UIColor blackColor];  //Black Color
         _todayLabel.text = @"Day";
     }
+        
     else if ([_dayLabel.text isEqualToString:@"No School"]) {   //No School
         _infinativeLabel.text = @"There is";    //Infinative
         _dayLabel.font = [UIFont systemFontOfSize:50.0];
@@ -171,6 +147,7 @@
         _infinativeLabel.textColor = [UIColor blackColor];  //Black Color
         _todayLabel.text = @"Today";
     }
+        
     else if ([_dayLabel.text isEqualToString:@"Weekend"]){  //Weekend
         _dayLabel.textColor = [UIColor blackColor];  //Black Color
         _infinativeLabel.textColor = [UIColor blackColor];  //Black Color
@@ -188,17 +165,17 @@
     //      **************************
 
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    // Return the number of sections.
-    return 1;
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+
+    return 1;    // Return the number of sections.
+
 }
 
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    // Return the number of rows in the section.
-    return [_EventArray count];
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+
+    return [_EventArray count];    // Return the number of rows in the section.
+
 }
 
 
@@ -234,13 +211,15 @@
 }
 
 
-//      ***********************
-//      * Load Data From GCal *
-//      ***********************
 
 
--(void)LoadCalendarData
-{
+
+    //      ***********************
+    //      * Load Data From GCal *
+    //      ***********************
+
+
+-(void)LoadCalendarData {
     
     
     dispatch_sync(kBgQueue, ^{
@@ -250,8 +229,78 @@
 }
 
 
-- (void)fetchedData:(NSData *)responseData
-{
+-(void)LoadLunchData {
+    
+    
+    dispatch_sync(kBgQueue, ^{
+        NSData* lunchData = [NSData dataWithContentsOfURL: LunchURL];
+        [self performSelectorOnMainThread:@selector(fetchedLunchData:) withObject:lunchData waitUntilDone:YES];
+    });
+}
+
+
+
+- (void)fetchedLunchData:(NSData *)responseData {
+    
+    _LunchArray = [[NSMutableArray alloc]init];
+    
+    //parse out the json data
+    NSError* error;
+    NSDictionary* json = [NSJSONSerialization
+                          JSONObjectWithData:responseData //1
+                          
+                          options:kNilOptions
+                          error:&error];
+    
+    NSDictionary* latestLoans = [json objectForKey:@"feed"]; //2d
+    NSArray* arrEvent = [latestLoans objectForKey:@"entry"];
+    
+    for (NSDictionary *event in arrEvent) {
+        GoogCal *googCalObj = [[GoogCal alloc]init];
+        
+        NSDictionary *title = [event objectForKey:@"title"];
+        googCalObj.Title = [title objectForKey:@"$t"];
+        NSLog(@"Lunch: %@", googCalObj.Title);
+        
+        // Convert string to date object
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+        NSLocale *enUSPOSIXLocale;
+        enUSPOSIXLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
+        [dateFormat setLocale:enUSPOSIXLocale];
+        [dateFormat setDateFormat:@"yyyy'-'MM'-'dd'T'Z'"];
+        [dateFormat setDateFormat:@"'EEEE'"];
+        [dateFormat setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
+        
+        NSArray *dateArr = [event objectForKey:@"gd$when"];     //dates are stored in an array
+        
+        
+        for(NSDictionary *dateDict in dateArr) {
+            
+            NSLocale *enUSPOSIXLocale;
+            enUSPOSIXLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
+            ISO8601DateFormatter *formatter = [[ISO8601DateFormatter alloc] init];
+            
+            NSDate *endDate = [formatter dateFromString:[dateDict objectForKey:@"endTime"]];
+            NSDate *startDate = [formatter dateFromString:[dateDict objectForKey:@"startTime"]];
+            formatter = nil;
+            
+            googCalObj.EndDate = endDate; //[endDate addTimeInterval:-3600*6];
+            googCalObj.StartDate = startDate; //[startDate addTimeInterval:-3600*6];
+            
+        }
+        
+        NSDictionary *content = [event objectForKey:@"content"];
+        googCalObj.Description = [content objectForKey:@"$t"];
+        
+        [_LunchArray addObject:googCalObj];
+        
+    }
+    
+}
+
+
+- (void)fetchedData:(NSData *)responseData {
+    
     _EventArray = [[NSMutableArray alloc]init];
     
     //parse out the json data
@@ -264,12 +313,13 @@
     
     NSDictionary* latestLoans = [json objectForKey:@"feed"]; //2d
     NSArray* arrEvent = [latestLoans objectForKey:@"entry"];
-    for (NSDictionary *event in arrEvent)
-    {
+    
+    for (NSDictionary *event in arrEvent) {
         GoogCal *googCalObj = [[GoogCal alloc]init];
         
         NSDictionary *title = [event objectForKey:@"title"];
         googCalObj.Title = [title objectForKey:@"$t"];
+        NSLog(@"Event: %@", googCalObj.Title);
         
         // Convert string to date object
         NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
@@ -279,10 +329,10 @@
         [dateFormat setDateFormat:@"yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'"];
         [dateFormat setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
         
-        //dates are stored in an array
-        NSArray *dateArr = [event objectForKey:@"gd$when"];
-        for(NSDictionary *dateDict in dateArr)
-        {
+        NSArray *dateArr = [event objectForKey:@"gd$when"];     //dates are stored in an array
+
+        
+        for(NSDictionary *dateDict in dateArr) {
             
             NSLocale *enUSPOSIXLocale;
             enUSPOSIXLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
@@ -294,20 +344,26 @@
             
             googCalObj.EndDate = endDate; //[endDate addTimeInterval:-3600*6];
             googCalObj.StartDate = startDate; //[startDate addTimeInterval:-3600*6];
-            NSLog(@"Event: %@", [dateDict objectForKey:@"endTime"]);
-            NSLog(@"Event: %@", googCalObj.EndDate);
             
         }
-        
         
         NSDictionary *content = [event objectForKey:@"content"];
         googCalObj.Description = [content objectForKey:@"$t"];
         
         [_EventArray addObject:googCalObj];
         
-        
     }
+    
 }
 
+
+- (IBAction)lunchChanger:(id)sender{
+    
+    GoogCal *lunchLcl = (GoogCal *)[_LunchArray objectAtIndex:0];
+    
+    NSString *todaysLunch = lunchLcl.Title;
+    
+    _lunchLabel.text = todaysLunch;
+}
 
 @end

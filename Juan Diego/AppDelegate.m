@@ -8,9 +8,10 @@
 // No Comment
 
 
-#import "AppDelegate.h"
 #import <Parse/Parse.h>
+#import "AppDelegate.h"
 #import "PowerschoolViewController.h"
+
 
 @implementation AppDelegate
 
@@ -18,6 +19,7 @@
     //      ************************************
     //      * Application Did Finish Launching *
     //      ************************************
+
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -28,37 +30,27 @@
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     
     [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge|
+     
      UIRemoteNotificationTypeAlert|
+     
      UIRemoteNotificationTypeSound];
+    
     return YES;
     
-    [self parseLocation];
 }
 
 
-- (IBAction) parseLocation{
-    
-    [PFGeoPoint geoPointForCurrentLocationInBackground:^(PFGeoPoint *geoPoint, NSError *error) {
-        if (!error) {
-            
-            PFObject *locationClass = [PFObject objectWithClassName:@"Location"];
-            
-            NSString *deviceName = [[UIDevice currentDevice] name]; // e.g. "iPod touch"
-            
-            [locationClass setObject:geoPoint forKey:@"Location"];
-            [locationClass setObject:deviceName forKey:@"DeviceName"];
-            [locationClass save];
-        }
-    }];
-}
-
+    //      *********************
+    //      * Register For Push *
+    //      *********************
 
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)newDeviceToken {
-    [PFPush storeDeviceToken:newDeviceToken];
-    [PFPush subscribeToChannelInBackground:@"" target:self selector:@selector(subscribeFinished:error:)];
     
-    NSLog(@"%@", [[PFInstallation currentInstallation] deviceToken]);
+    [PFPush storeDeviceToken:newDeviceToken];
+    
+    [PFPush subscribeToChannelInBackground:@"" target:self selector:@selector(subscribeFinished:error:)];
+
 }
 
 
@@ -69,13 +61,47 @@
 
 
 - (void)subscribeFinished:(NSNumber *)result error:(NSError *)error {
+    
     if ([result boolValue]) {
+        
         NSLog(@"ParseStarterProject successfully subscribed to push notifications on the broadcast channel.");
-    } else {
-        NSLog(@"ParseStarterProject failed to subscribe to push notifications on the broadcast channel.");
+        
     }
+    
+    else {
+        
+        NSLog(@"ParseStarterProject failed to subscribe to push notifications on the broadcast channel.");
+        
+    }
+    
 }
 
+
+    //      *************************
+    //      * Clear Badge Upon Open *
+    //      *************************
+
+
+-(void)applicationWillEnterForeground:(UIApplication *)application {
+    
+    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
+    
+}
+
+
+
+- (void) applicationDidBecomeActive:(UIApplication *)application{
+    
+    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
+    
+}
+
+
+-(void)applicationDidFinishLaunching:(UIApplication *)application {
+    
+    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
+    
+}
 
 
 @end

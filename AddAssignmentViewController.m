@@ -11,17 +11,13 @@
 #import <Parse/Parse.h>
 
 @interface AddAssignmentViewController ()
-
 @end
 
 @implementation AddAssignmentViewController
 
 @synthesize nameField = _nameField;
-
 @synthesize descriptionField = _descriptionField;
-
 @synthesize datePicker = _datePicker;
-
 @synthesize devIdArray;
 
 
@@ -29,7 +25,6 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
     }
     return self;
 }

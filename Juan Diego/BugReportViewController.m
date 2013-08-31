@@ -42,6 +42,7 @@
     
     PFObject *tip = [PFObject objectWithClassName:@"Bugs"];
     [tip setObject: currentid forKey:@"Identifier"];
+    [tip setObject:@"V B 4.0.0" forKey:@"Version"];
     [tip setObject:_subjectField.text forKey:@"Subject"];
     [tip setObject:_descriptionField.text forKey:@"Description"];
     
