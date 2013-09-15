@@ -21,18 +21,15 @@
     //      ************************************
 
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   
     [Parse setApplicationId:@"BAIjvNdRhkUPB88Ajg47Ppy8bV0hj0HQ3zgML2Ex"
                   clientKey:@"ggF0i6emg3PLr0wZP8uqB0YVQRX15vg8FlCUplFz"];
     
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
-    
+
     [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge|
-     
      UIRemoteNotificationTypeAlert|
-     
      UIRemoteNotificationTypeSound];
     
     return YES;
@@ -48,7 +45,6 @@
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)newDeviceToken {
     
     [PFPush storeDeviceToken:newDeviceToken];
-    
     [PFPush subscribeToChannelInBackground:@"" target:self selector:@selector(subscribeFinished:error:)];
 
 }
@@ -63,17 +59,12 @@
 - (void)subscribeFinished:(NSNumber *)result error:(NSError *)error {
     
     if ([result boolValue]) {
-        
         NSLog(@"ParseStarterProject successfully subscribed to push notifications on the broadcast channel.");
-        
     }
     
     else {
-        
         NSLog(@"ParseStarterProject failed to subscribe to push notifications on the broadcast channel.");
-        
     }
-    
 }
 
 

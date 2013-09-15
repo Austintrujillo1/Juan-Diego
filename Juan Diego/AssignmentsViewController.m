@@ -65,22 +65,15 @@
 - (IBAction)refreshButton:(id)sender{
     
     NSString *currentid = [[PFInstallation currentInstallation]deviceToken];
-    
     PFQuery *assignmentQuery = [PFQuery queryWithClassName:@"Assignments"];
-    
     [assignmentQuery whereKey:@"Identifier" equalTo:currentid];
-    
     [assignmentQuery addAscendingOrder:@"Date"];
     
     [assignmentQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             
             assignmentsArray = objects;
-            
-            NSLog(@"%@", assignmentsArray);
-            
             [self.tableView reloadData];
-            
         }
     }];
     
@@ -93,17 +86,15 @@
     //      **************************
 
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    // Return the number of sections.
-    return 1;
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    
+    return 1; // Return the number of sections.
 }
 
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    // Return the number of rows in the section.
-    return assignmentsArray.count;
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+
+    return assignmentsArray.count;    // Return the number of rows in the section.
 }
 
 
@@ -118,15 +109,11 @@
     
     // Configure the cell with the textContent of the Post as the cell's text label
     PFObject *assignments = [assignmentsArray objectAtIndex:indexPath.row];
-    
     [cell.textLabel setText:[assignments objectForKey:@"Name"]];
-    
     [cell.detailTextLabel setText:[assignments objectForKey:@"Description"]];
-    
     [self badgeIncrementer];
-    
     return cell;
-    
+
 }
 
 
@@ -138,9 +125,7 @@
 - (void) badgeIncrementer{
     
     int indexICareAbout = 1;
-    
     NSString *badgeValue = [NSString stringWithFormat:@"%d", assignmentsArray.count];
-        
     [[[[[self tabBarController] viewControllers] objectAtIndex: indexICareAbout] tabBarItem] setBadgeValue:badgeValue];
 
 }
@@ -155,11 +140,8 @@
 {
 
     PFObject *currentSelection = [self.assignmentsArray objectAtIndex:indexPath.row];
-        
     [currentSelection deleteInBackground];
-    
     [self performSelector:@selector(viewDidAppear:) withObject:nil afterDelay:1.0];
-    
     [self refreshButton:nil];
     
 }

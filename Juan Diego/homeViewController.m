@@ -11,7 +11,6 @@
 #import "ISO8601DateFormatter.h"
 #import <Parse/Parse.h>
 #import <MapKit/MapKit.h>
-#import <CoreLocation/CoreLocation.h>
 
 @interface HomeViewController ()
 @end
@@ -19,14 +18,17 @@
 
 @implementation HomeViewController
 
+
 @synthesize EventArray = _EventArray;
 @synthesize LunchArray = _LunchArray;
+@synthesize tableView = _tableView;
+@synthesize activityView = _activityView;
 @synthesize selectedRow;
+@synthesize lunchday = _lunchday;
 @synthesize dayLabel = _dayLabel;
 @synthesize infinativeLabel = _infinativeLabel;
 @synthesize todayLabel = _todayLabel;
 @synthesize lunchLabel = _lunchLabel;
-@synthesize tableView = _tableView;
 
 
     //      ********************
@@ -49,19 +51,36 @@
 - (IBAction)refreshButton:(id)sender {
         
     [self dayChecker];
-    
     [self LoadLunchData];
-
     [self preferredStatusBarStyle];
-
     [[UIApplication sharedApplication] setStatusBarHidden:NO];
-
-    [self lunchChanger:nil];
-    
     [self reloadTableview];
-        
+    [self startActivityIndicator:nil];
+    [self performSelector:@selector(stopActivityIndicator:) withObject:nil afterDelay: 0.9];
+
+    
 }
 
+
+    //      ***************************
+    //      * Stop Activity Indicator *
+    //      ***************************
+
+
+- (IBAction)startActivityIndicator:(id)sender{
+    [_activityView startAnimating];
+    
+}
+
+
+    //      ***************************
+    //      * Stop Activity Indicator *
+    //      ***************************
+
+
+- (IBAction)stopActivityIndicator:(id)sender{
+    [_activityView stopAnimating];
+}
 
     //      ********************
     //      * View Will Appear *
@@ -69,6 +88,8 @@
 
 
 -(void)viewWillAppear:(BOOL)animated {
+    
+    [_activityView startAnimating];
     
     [self performSelector:@selector(refreshButton:) withObject:nil afterDelay: 0.5];
     
@@ -83,7 +104,6 @@
 - (void) reloadTableview {
     
     [self LoadCalendarData];
-    
     [_tableView reloadData];
     
 }
@@ -107,7 +127,7 @@
     
     [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {    //Get First (and Only) Object From Query
         NSString *day = [object objectForKey:@"Day"];   //Create Object From Part of Array
-        NSLog(@"%@ Day", day);  //Log Day
+        NSLog(@"Day: %@", day);  //Log Day
     
     _dayLabel.text = day;   //Set Label To Day
     _todayLabel.text = @"Day";
@@ -155,6 +175,25 @@
         _todayLabel.text = @"";
     }
     
+    
+        
+    if([_dayLabel.text isEqualToString: @"A" ] || [_dayLabel.text isEqualToString: @"B" ] || [_dayLabel.text isEqualToString: @"C" ] || [_dayLabel.text isEqualToString: @"D"]){
+        
+        GoogCal *lunchLcl = (GoogCal *)[_LunchArray objectAtIndex:0];
+        NSString *todaysLunch = lunchLcl.Title;
+        _lunchday.text = @"Lunch is";
+        _lunchLabel.text = todaysLunch;
+            
+            
+    }
+        
+    else if ([_dayLabel.text isEqualToString: @"No School" ] || [_dayLabel.text isEqualToString: @"Weekend" ]){
+            
+        _lunchLabel.text = @"";
+        _lunchday.text = @"";
+            
+    }
+
     }];
     
 }
@@ -211,16 +250,12 @@
 }
 
 
-
-
-
     //      ***********************
     //      * Load Data From GCal *
     //      ***********************
 
 
--(void)LoadCalendarData {
-    
+-(void)LoadCalendarData {   //Calendar Data
     
     dispatch_sync(kBgQueue, ^{
         NSData* data = [NSData dataWithContentsOfURL: kGoogleCalendarURL];
@@ -229,8 +264,7 @@
 }
 
 
--(void)LoadLunchData {
-    
+-(void)LoadLunchData {      //Lunch Data
     
     dispatch_sync(kBgQueue, ^{
         NSData* lunchData = [NSData dataWithContentsOfURL: LunchURL];
@@ -240,7 +274,7 @@
 
 
 
-- (void)fetchedLunchData:(NSData *)responseData {
+- (void)fetchedLunchData:(NSData *)responseData {       //Fetched Lunch Data
     
     _LunchArray = [[NSMutableArray alloc]init];
     
@@ -299,7 +333,7 @@
 }
 
 
-- (void)fetchedData:(NSData *)responseData {
+- (void)fetchedData:(NSData *)responseData {        //Fetched Calendar Data
     
     _EventArray = [[NSMutableArray alloc]init];
     
@@ -357,13 +391,6 @@
 }
 
 
-- (IBAction)lunchChanger:(id)sender{
-    
-    GoogCal *lunchLcl = (GoogCal *)[_LunchArray objectAtIndex:0];
-    
-    NSString *todaysLunch = lunchLcl.Title;
-    
-    _lunchLabel.text = todaysLunch;
-}
+
 
 @end

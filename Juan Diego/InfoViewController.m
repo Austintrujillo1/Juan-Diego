@@ -66,14 +66,23 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     
+    
     CLLocationCoordinate2D zoomLocation;
     zoomLocation.latitude = 40.535521;
     zoomLocation.longitude= -111.881579;
     
     MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(zoomLocation, 0.5*METERS_PER_MILE, 0.5*METERS_PER_MILE);
     
+    MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
+    [point setCoordinate:zoomLocation];
+    [point setTitle:@"Juan Diego Catholic High School"];
+    
+    [_mapView addAnnotation:point];
+    
     [_mapView setRegion:viewRegion animated:YES];
     
+    [_mapView selectAnnotation:point animated:YES];
+
 }
 
     //      ******************************

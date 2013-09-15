@@ -52,6 +52,7 @@
 
 
 -(IBAction)backButtonPressed:(id)sender {
+   
     [_webView goBack];
 }
 
@@ -61,8 +62,8 @@
     //      ******************
 
 
--(IBAction)forwardButtonPressed:(id)sender
-{
+-(IBAction)forwardButtonPressed:(id)sender{
+    
     [_webView goForward];
 }
 
@@ -72,8 +73,8 @@
     //      *****************
 
 
-- (IBAction)logoutButtonPressed:(id)sender
-{
+- (IBAction)logoutButtonPressed:(id)sender{
+   
     [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://powerschool.slvcatholic.org/public/"]]];
 }
 
@@ -83,12 +84,13 @@
     //      *************************
 
 
--(void)startWebViewLoad
-{
-    [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://powerschool.slvcatholic.org/public/~loff"]]];}
+-(void)startWebViewLoad{
+ 
+    [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://powerschool.slvcatholic.org/public/~loff"]]];
+}
 
-- (void)webViewDidStartLoad:(UIWebView *)thisWebView
-{
+- (void)webViewDidStartLoad:(UIWebView *)thisWebView{
+   
     _backButton.enabled = NO;
     _backButton.enabled = NO;
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A902A7EC17E3A1B100A16863 /* juanDiegoLogo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A902A7EB17E3A1B100A16863 /* juanDiegoLogo.jpg */; };
 		A9075B1717A9992F000C2134 /* eagle.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A9075B1617A9992F000C2134 /* eagle.mp3 */; };
 		A91CE55317A1C12000C5743C /* powerschoolLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = A91CE55217A1C12000C5743C /* powerschoolLogo.png */; };
 		A91CE55417A1C12000C5743C /* powerschoolLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = A91CE55217A1C12000C5743C /* powerschoolLogo.png */; };
@@ -23,13 +24,10 @@
 		A92A5E3617B0437100F3AD31 /* GoogCal.m in Sources */ = {isa = PBXBuildFile; fileRef = A92A5E3117B0437100F3AD31 /* GoogCal.m */; };
 		A92A5E3717B0437100F3AD31 /* GoogleCalenderReader-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A92A5E3217B0437100F3AD31 /* GoogleCalenderReader-Info.plist */; };
 		A92A5E3817B0437100F3AD31 /* ISO8601DateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = A92A5E3517B0437100F3AD31 /* ISO8601DateFormatter.m */; };
-		A93EEB9217C2B4B1005A8A3C /* juanDiegoLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = A93EEB9117C2B4B1005A8A3C /* juanDiegoLogo.png */; };
-		A93EEB9417C2B575005A8A3C /* juanDiegoLogo2.png in Resources */ = {isa = PBXBuildFile; fileRef = A93EEB9317C2B575005A8A3C /* juanDiegoLogo2.png */; };
 		A93EEB9617C2E09C005A8A3C /* youtube.png in Resources */ = {isa = PBXBuildFile; fileRef = A93EEB9517C2E09C005A8A3C /* youtube.png */; };
-		A94AC70117BA9080008143A3 /* BugReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A94AC70017BA9080008143A3 /* BugReportViewController.m */; };
+		A93F8E1A17D2546B00E1D6B1 /* Handbook.pdf in Resources */ = {isa = PBXBuildFile; fileRef = A93F8E1917D2546B00E1D6B1 /* Handbook.pdf */; };
 		A94AC72D17BAA2CD008143A3 /* splashScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = A94AC72C17BAA2CD008143A3 /* splashScreen.png */; };
 		A960C02C17B16740003ABDC3 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A960C02B17B16740003ABDC3 /* HomeViewController.m */; };
-		A96222FE17B2AEC100206572 /* Handbook.pdf in Resources */ = {isa = PBXBuildFile; fileRef = A96222FD17B2AEC100206572 /* Handbook.pdf */; };
 		A962230417B2E3E400206572 /* AddAssignmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A962230317B2E3E400206572 /* AddAssignmentViewController.m */; };
 		A962230717B2F0B100206572 /* AssignmentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A962230617B2F0B100206572 /* AssignmentsViewController.m */; };
 		A97AB45617A73DE8003DB7AB /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A97AB45417A73DE8003DB7AB /* Icon-Small@2x.png */; };
@@ -78,6 +76,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A902A7EB17E3A1B100A16863 /* juanDiegoLogo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = juanDiegoLogo.jpg; sourceTree = "<group>"; };
 		A9075B1617A9992F000C2134 /* eagle.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = eagle.mp3; sourceTree = "<group>"; };
 		A91CE55217A1C12000C5743C /* powerschoolLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = powerschoolLogo.png; sourceTree = "<group>"; };
 		A91CE55517A1C55000C5743C /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
@@ -95,15 +94,11 @@
 		A92A5E3317B0437100F3AD31 /* GoogleCalenderReader-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GoogleCalenderReader-Prefix.pch"; sourceTree = "<group>"; };
 		A92A5E3417B0437100F3AD31 /* ISO8601DateFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISO8601DateFormatter.h; sourceTree = "<group>"; };
 		A92A5E3517B0437100F3AD31 /* ISO8601DateFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISO8601DateFormatter.m; sourceTree = "<group>"; };
-		A93EEB9117C2B4B1005A8A3C /* juanDiegoLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = juanDiegoLogo.png; sourceTree = "<group>"; };
-		A93EEB9317C2B575005A8A3C /* juanDiegoLogo2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = juanDiegoLogo2.png; sourceTree = "<group>"; };
 		A93EEB9517C2E09C005A8A3C /* youtube.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = youtube.png; sourceTree = "<group>"; };
-		A94AC6FF17BA9080008143A3 /* BugReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BugReportViewController.h; sourceTree = "<group>"; };
-		A94AC70017BA9080008143A3 /* BugReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BugReportViewController.m; sourceTree = "<group>"; };
+		A93F8E1917D2546B00E1D6B1 /* Handbook.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Handbook.pdf; sourceTree = "<group>"; };
 		A94AC72C17BAA2CD008143A3 /* splashScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splashScreen.png; sourceTree = "<group>"; };
 		A960C02A17B16740003ABDC3 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		A960C02B17B16740003ABDC3 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
-		A96222FD17B2AEC100206572 /* Handbook.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Handbook.pdf; sourceTree = "<group>"; };
 		A962230217B2E3E400206572 /* AddAssignmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddAssignmentViewController.h; path = ../AddAssignmentViewController.h; sourceTree = "<group>"; };
 		A962230317B2E3E400206572 /* AddAssignmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddAssignmentViewController.m; path = ../AddAssignmentViewController.m; sourceTree = "<group>"; };
 		A962230517B2F0B100206572 /* AssignmentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssignmentsViewController.h; sourceTree = "<group>"; };
@@ -200,15 +195,6 @@
 			name = "Google Calendar";
 			sourceTree = "<group>";
 		};
-		A94AC6FE17BA9067008143A3 /* Bug Report */ = {
-			isa = PBXGroup;
-			children = (
-				A94AC6FF17BA9080008143A3 /* BugReportViewController.h */,
-				A94AC70017BA9080008143A3 /* BugReportViewController.m */,
-			);
-			name = "Bug Report";
-			sourceTree = "<group>";
-		};
 		A954E14D17B06612003B6605 /* Handbook */ = {
 			isa = PBXGroup;
 			children = (
@@ -271,7 +257,6 @@
 				A954E14D17B06612003B6605 /* Handbook */,
 				A954E14E17B0661E003B6605 /* Contact */,
 				A954E14F17B06626003B6605 /* Social */,
-				A94AC6FE17BA9067008143A3 /* Bug Report */,
 			);
 			name = More;
 			sourceTree = "<group>";
@@ -301,9 +286,8 @@
 			isa = PBXGroup;
 			children = (
 				A91CE55217A1C12000C5743C /* powerschoolLogo.png */,
+				A902A7EB17E3A1B100A16863 /* juanDiegoLogo.jpg */,
 				A9A6219317A9EE5100F352AA /* parseLogo.jpg */,
-				A93EEB9117C2B4B1005A8A3C /* juanDiegoLogo.png */,
-				A93EEB9317C2B575005A8A3C /* juanDiegoLogo2.png */,
 				A9A6218D17A9EB9400F352AA /* atdLogo.png */,
 			);
 			name = Logos;
@@ -322,7 +306,7 @@
 		A99CCDA017AC625B00098F41 /* Misc. */ = {
 			isa = PBXGroup;
 			children = (
-				A96222FD17B2AEC100206572 /* Handbook.pdf */,
+				A93F8E1917D2546B00E1D6B1 /* Handbook.pdf */,
 				A9CA307E177A02ED00B11328 /* Juan Diego-Info.plist */,
 				A9CA307F177A02ED00B11328 /* InfoPlist.strings */,
 				A9CA3082177A02ED00B11328 /* main.m */,
@@ -488,7 +472,7 @@
 				ORGANIZATIONNAME = ATD;
 				TargetAttributes = {
 					A9CA3072177A02ED00B11328 = {
-						DevelopmentTeam = 55G2XTNQ52;
+						DevelopmentTeam = FBRZUZZF5Q;
 						SystemCapabilities = {
 							com.apple.InAppPurchase = {
 								enabled = 0;
@@ -528,11 +512,11 @@
 				A91CE55317A1C12000C5743C /* powerschoolLogo.png in Resources */,
 				A99CCD8517AAEB2500098F41 /* homeTabBarIcon.png in Resources */,
 				A97AB45F17A7415D003DB7AB /* appIconSpotlight@2x.png in Resources */,
-				A96222FE17B2AEC100206572 /* Handbook.pdf in Resources */,
 				A9F0376D17AF5ABE00DF4AAB /* backgroungImage.png in Resources */,
 				A9A6219017A9EC3B00F352AA /* borderpx.png in Resources */,
 				A99CCDAF17ACCB1B00098F41 /* InstagramButton.png in Resources */,
 				A9A6218E17A9EB9400F352AA /* atdLogo.png in Resources */,
+				A902A7EC17E3A1B100A16863 /* juanDiegoLogo.jpg in Resources */,
 				A9075B1717A9992F000C2134 /* eagle.mp3 in Resources */,
 				A93EEB9617C2E09C005A8A3C /* youtube.png in Resources */,
 				A97AB45D17A74124003DB7AB /* appIcon@2x.png in Resources */,
@@ -543,10 +527,9 @@
 				A9C888D817ADB6D80021DD21 /* Default-568h@2x.png in Resources */,
 				A99CCDAE17ACCB1B00098F41 /* facebookButton.png in Resources */,
 				A99CCD8617AAEB2500098F41 /* pencilTabBarIcon.png in Resources */,
-				A93EEB9217C2B4B1005A8A3C /* juanDiegoLogo.png in Resources */,
+				A93F8E1A17D2546B00E1D6B1 /* Handbook.pdf in Resources */,
 				A9CA3081177A02ED00B11328 /* InfoPlist.strings in Resources */,
 				A9CA308A177A02ED00B11328 /* Main.storyboard in Resources */,
-				A93EEB9417C2B575005A8A3C /* juanDiegoLogo2.png in Resources */,
 				A99CCD8417AAEB2500098F41 /* booksTabBarIcon.png in Resources */,
 				A99CCDB017ACCB1B00098F41 /* TwitterButton.png in Resources */,
 				A989087917BD2F1C00B7D2A6 /* phoneIcon.png in Resources */,
@@ -577,7 +560,6 @@
 				A9CA3087177A02ED00B11328 /* AppDelegate.m in Sources */,
 				A960C02C17B16740003ABDC3 /* HomeViewController.m in Sources */,
 				A9CA3083177A02ED00B11328 /* main.m in Sources */,
-				A94AC70117BA9080008143A3 /* BugReportViewController.m in Sources */,
 				A962230417B2E3E400206572 /* AddAssignmentViewController.m in Sources */,
 				A962230717B2F0B100206572 /* AssignmentsViewController.m in Sources */,
 				A989086C17BBE6F000B7D2A6 /* PowerschoolViewController.m in Sources */,
@@ -701,7 +683,7 @@
 		A9CA30A9177A02ED00B11328 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Skaggs Catholic Center, LLC (FBRZUZZF5Q)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -723,7 +705,7 @@
 		A9CA30AA177A02ED00B11328 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Skaggs Catholic Center, LLC (FBRZUZZF5Q)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
