@@ -17,14 +17,9 @@
 @synthesize webView;
 
 
-    //      ***********************
-    //      * Start Web View Load *
-    //      ***********************
-
-
 -(void)startWebViewLoad
 {
-    
+    //Path to PDF
     NSString *path = [[NSBundle mainBundle] pathForResource:@"Handbook" ofType:@"pdf"];
     
     //Create a URL object.
@@ -38,21 +33,11 @@
 }
 
 
-    //      ********************
-    //      * Status Bar Style *
-    //      ********************
-
-
 -(UIStatusBarStyle)preferredStatusBarStyle{
 
-    return UIStatusBarStyleLightContent;
+    return UIStatusBarStyleLightContent;        //Light Status Bar
 
 }
-
-
-    //      *****************
-    //      * View Did Load *
-    //      *****************
 
 
 - (void)viewDidLoad

@@ -7,7 +7,6 @@
 //
 
 #import "HomeViewController.h"
-#import "AssignmentsViewController.h"
 #import "ISO8601DateFormatter.h"
 #import <Parse/Parse.h>
 #import <MapKit/MapKit.h>
@@ -42,13 +41,14 @@
     
 }
 
-
     //      ******************
     //      * Refresh Button *
     //      ******************
 
 
 - (IBAction)refreshButton:(id)sender {
+    
+    //Refresh Items
         
     [self dayChecker];
     [self LoadLunchData];
@@ -57,34 +57,21 @@
     [self reloadTableview];
     [self startActivityIndicator:nil];
     [self performSelector:@selector(stopActivityIndicator:) withObject:nil afterDelay: 0.9];
-
     
 }
-
-
-    //      ***************************
-    //      * Stop Activity Indicator *
-    //      ***************************
 
 
 - (IBAction)startActivityIndicator:(id)sender{
-    [_activityView startAnimating];
+    
+    [_activityView startAnimating];     //Start Activity Indicator
     
 }
 
 
-    //      ***************************
-    //      * Stop Activity Indicator *
-    //      ***************************
-
-
 - (IBAction)stopActivityIndicator:(id)sender{
-    [_activityView stopAnimating];
+    
+    [_activityView stopAnimating];      //Stop Activity Indicator
 }
-
-    //      ********************
-    //      * View Will Appear *
-    //      ********************
 
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -96,12 +83,9 @@
 }
 
 
-    //      *********************
-    //      * Reload Table View *
-    //      *********************
-
-
 - (void) reloadTableview {
+    
+    //Reload Table and Data
     
     [self LoadCalendarData];
     [_tableView reloadData];
@@ -109,11 +93,6 @@
 }
 
 
-    //      ***************
-    //      * Day Checker *
-    //      ***************
-
-    
 - (void) dayChecker {
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];    //Declare Formatter
@@ -174,10 +153,12 @@
         _infinativeLabel.text = @"It is the";
         _todayLabel.text = @"";
     }
-    
-    
+        
+        //Determine whether or not to get the lnch calendar
         
     if([_dayLabel.text isEqualToString: @"A" ] || [_dayLabel.text isEqualToString: @"B" ] || [_dayLabel.text isEqualToString: @"C" ] || [_dayLabel.text isEqualToString: @"D"]){
+        
+        //If A,B,C,D day; Get Lunch
         
         GoogCal *lunchLcl = (GoogCal *)[_LunchArray objectAtIndex:0];
         NSString *todaysLunch = lunchLcl.Title;
@@ -188,7 +169,9 @@
     }
         
     else if ([_dayLabel.text isEqualToString: @"No School" ] || [_dayLabel.text isEqualToString: @"Weekend" ]){
-            
+        
+        //If Weekend or No School
+        
         _lunchLabel.text = @"";
         _lunchday.text = @"";
             
@@ -198,11 +181,7 @@
     
 }
 
-
-    //      **************************
-    //      * Table View Data Source *
-    //      **************************
-
+#pragma mark - Table View Data Source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 
@@ -250,9 +229,7 @@
 }
 
 
-    //      ***********************
-    //      * Load Data From GCal *
-    //      ***********************
+#pragma mark - Get GoogCal Data
 
 
 -(void)LoadCalendarData {   //Calendar Data

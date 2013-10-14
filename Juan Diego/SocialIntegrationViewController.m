@@ -16,77 +16,25 @@
 @implementation SocialIntegrationViewController
 
 
-    //      **********************
-    //      * Init With Nib Name *
-    //      **********************
-
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
-
-    //      *****************
-    //      * View Did Load *
-    //      *****************
-
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
-}
-
-
-    //      ************************
-    //      * Facebook Integration *
-    //      ************************
-
-
 - (IBAction)facebookIntegration:(id)sender{
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"fb://profile/310627345673242"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"fb://profile/310627345673242"]];      //Open Facebook app with profile
 }
-
-
-//      ************************
-//      * Facebook Integration *
-//      ************************
 
 
 - (IBAction)youtubeIntegration:(id)sender{
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.youtube.com/channel/UCZ6a-KF00z6qW9Xi1WK1k8g"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.youtube.com/channel/UCZ6a-KF00z6qW9Xi1WK1k8g"]];       //Open Safari at youtube channel
 
 }
-
-
-    //      ***********************
-    //      * Twitter Integration *
-    //      ***********************
 
 
 - (IBAction)twitterIntegration:(id)sender{
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"twitter://user?screen_name=JDCHS"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"twitter://user?screen_name=JDCHS"]];      //Open Twitter app with profile
 }
-
-
-    //      *************************
-    //      * Instagram Integration *
-    //      *************************
 
 
 - (IBAction)instagramIntegration:(id)sender{
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"instagram://user?username=JDCHS"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"instagram://user?username=JDCHS"]];       //Open Instagram app with profile
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 @end

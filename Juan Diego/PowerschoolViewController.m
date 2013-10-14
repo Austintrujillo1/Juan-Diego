@@ -22,87 +22,48 @@
 
 @synthesize logoutButton = _logoutButton;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
-
-    //      *****************
-    //      * View Did Load *
-    //      *****************
-
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
     
-    [self startWebViewLoad];
+    [self startWebViewLoad];    //Start Loading WebView
 }
-
-
-    //      ***************
-    //      * Back Button *
-    //      ***************
 
 
 -(IBAction)backButtonPressed:(id)sender {
    
-    [_webView goBack];
+    [_webView goBack];      //Go Back in WebView via Button
 }
-
-
-    //      ******************
-    //      * Forward Button *
-    //      ******************
 
 
 -(IBAction)forwardButtonPressed:(id)sender{
     
-    [_webView goForward];
+    [_webView goForward];       //Go Forward in WebView via Button
 }
-
-
-    //      *****************
-    //      * Logout Button *
-    //      *****************
 
 
 - (IBAction)logoutButtonPressed:(id)sender{
    
-    [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://powerschool.slvcatholic.org/public/"]]];
+    [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://powerschool.slvcatholic.org/public/"]]];      //Log Out of the current Powerschool Session
 }
-
-
-    //      *************************
-    //      * Start Loading WebView *
-    //      *************************
 
 
 -(void)startWebViewLoad{
  
-    [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://powerschool.slvcatholic.org/public/~loff"]]];
+    [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://powerschool.slvcatholic.org/public/~loff"]]];     //Start Loading
 }
 
 - (void)webViewDidStartLoad:(UIWebView *)thisWebView{
    
-    _backButton.enabled = NO;
-    _backButton.enabled = NO;
+    _backButton.enabled = NO;       //Disable Back Button
 }
-
-
-    //      ****************************
-    //      * Finished Loading WebView *
-    //      ****************************
 
 
 - (void)webViewDidFinishLoad:(UIWebView *)thisWebView
 {
+    //Enable buttons
+    
     if(thisWebView.canGoBack == YES)
     {
         _backButton.enabled = YES;

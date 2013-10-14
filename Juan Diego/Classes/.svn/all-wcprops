@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/svn/!svn/ver/88/GoogleCalendar/Classes
+END
+AppDelegate.h
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/14/GoogleCalendar/Classes/AppDelegate.h
+END
+AppDelegate.m
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/23/GoogleCalendar/Classes/AppDelegate.m
+END
+RootViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/83/GoogleCalendar/Classes/RootViewController.h
+END
+EditingViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/85/GoogleCalendar/Classes/EditingViewController.h
+END
+DetailCell.h
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/44/GoogleCalendar/Classes/DetailCell.h
+END
+RootViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/91/GoogleCalendar/Classes/RootViewController.m
+END
+EditingViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/86/GoogleCalendar/Classes/EditingViewController.m
+END
+DetailCell.m
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/88/GoogleCalendar/Classes/DetailCell.m
+END

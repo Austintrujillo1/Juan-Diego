@@ -59,11 +59,11 @@
 - (void)subscribeFinished:(NSNumber *)result error:(NSError *)error {
     
     if ([result boolValue]) {
-        NSLog(@"ParseStarterProject successfully subscribed to push notifications on the broadcast channel.");
+        NSLog(@"Parse successfully subscribed to push notifications on the broadcast channel.");
     }
     
     else {
-        NSLog(@"ParseStarterProject failed to subscribe to push notifications on the broadcast channel.");
+        NSLog(@"Parse failed to subscribe to push notifications on the broadcast channel.");
     }
 }
 
@@ -80,19 +80,15 @@
 }
 
 
-
 - (void) applicationDidBecomeActive:(UIApplication *)application{
     
     [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
     
 }
 
-
 -(void)applicationDidFinishLaunching:(UIApplication *)application {
     
     [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
     
 }
-
-
 @end

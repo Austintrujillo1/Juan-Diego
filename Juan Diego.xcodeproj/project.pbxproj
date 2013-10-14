@@ -28,8 +28,8 @@
 		A93F8E1A17D2546B00E1D6B1 /* Handbook.pdf in Resources */ = {isa = PBXBuildFile; fileRef = A93F8E1917D2546B00E1D6B1 /* Handbook.pdf */; };
 		A94AC72D17BAA2CD008143A3 /* splashScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = A94AC72C17BAA2CD008143A3 /* splashScreen.png */; };
 		A960C02C17B16740003ABDC3 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A960C02B17B16740003ABDC3 /* HomeViewController.m */; };
-		A962230417B2E3E400206572 /* AddAssignmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A962230317B2E3E400206572 /* AddAssignmentViewController.m */; };
-		A962230717B2F0B100206572 /* AssignmentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A962230617B2F0B100206572 /* AssignmentsViewController.m */; };
+		A966DB8317E9342D002B0A61 /* PlannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A966DB8217E9342D002B0A61 /* PlannerViewController.m */; };
+		A966DB8617EA0A49002B0A61 /* AddPlannerItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A966DB8517EA0A49002B0A61 /* AddPlannerItemViewController.m */; };
 		A97AB45617A73DE8003DB7AB /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A97AB45417A73DE8003DB7AB /* Icon-Small@2x.png */; };
 		A97AB45D17A74124003DB7AB /* appIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A97AB45C17A74124003DB7AB /* appIcon@2x.png */; };
 		A97AB45F17A7415D003DB7AB /* appIconSpotlight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A97AB45E17A7415D003DB7AB /* appIconSpotlight@2x.png */; };
@@ -99,10 +99,10 @@
 		A94AC72C17BAA2CD008143A3 /* splashScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splashScreen.png; sourceTree = "<group>"; };
 		A960C02A17B16740003ABDC3 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		A960C02B17B16740003ABDC3 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
-		A962230217B2E3E400206572 /* AddAssignmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddAssignmentViewController.h; path = ../AddAssignmentViewController.h; sourceTree = "<group>"; };
-		A962230317B2E3E400206572 /* AddAssignmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddAssignmentViewController.m; path = ../AddAssignmentViewController.m; sourceTree = "<group>"; };
-		A962230517B2F0B100206572 /* AssignmentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssignmentsViewController.h; sourceTree = "<group>"; };
-		A962230617B2F0B100206572 /* AssignmentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssignmentsViewController.m; sourceTree = "<group>"; };
+		A966DB8117E9342D002B0A61 /* PlannerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlannerViewController.h; sourceTree = "<group>"; };
+		A966DB8217E9342D002B0A61 /* PlannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlannerViewController.m; sourceTree = "<group>"; };
+		A966DB8417EA0A49002B0A61 /* AddPlannerItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPlannerItemViewController.h; sourceTree = "<group>"; };
+		A966DB8517EA0A49002B0A61 /* AddPlannerItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPlannerItemViewController.m; sourceTree = "<group>"; };
 		A97AB45417A73DE8003DB7AB /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
 		A97AB45C17A74124003DB7AB /* appIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "appIcon@2x.png"; sourceTree = "<group>"; };
 		A97AB45E17A7415D003DB7AB /* appIconSpotlight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "appIconSpotlight@2x.png"; sourceTree = "<group>"; };
@@ -264,10 +264,10 @@
 		A96B0FEA17A8243800447D0A /* Planner */ = {
 			isa = PBXGroup;
 			children = (
-				A962230217B2E3E400206572 /* AddAssignmentViewController.h */,
-				A962230317B2E3E400206572 /* AddAssignmentViewController.m */,
-				A962230517B2F0B100206572 /* AssignmentsViewController.h */,
-				A962230617B2F0B100206572 /* AssignmentsViewController.m */,
+				A966DB8417EA0A49002B0A61 /* AddPlannerItemViewController.h */,
+				A966DB8517EA0A49002B0A61 /* AddPlannerItemViewController.m */,
+				A966DB8117E9342D002B0A61 /* PlannerViewController.h */,
+				A966DB8217E9342D002B0A61 /* PlannerViewController.m */,
 			);
 			name = Planner;
 			sourceTree = "<group>";
@@ -557,12 +557,12 @@
 				A92A5E3617B0437100F3AD31 /* GoogCal.m in Sources */,
 				A92A5E3817B0437100F3AD31 /* ISO8601DateFormatter.m in Sources */,
 				A99CCDA817ACB43E00098F41 /* SocialIntegrationViewController.m in Sources */,
+				A966DB8617EA0A49002B0A61 /* AddPlannerItemViewController.m in Sources */,
 				A9CA3087177A02ED00B11328 /* AppDelegate.m in Sources */,
 				A960C02C17B16740003ABDC3 /* HomeViewController.m in Sources */,
 				A9CA3083177A02ED00B11328 /* main.m in Sources */,
-				A962230417B2E3E400206572 /* AddAssignmentViewController.m in Sources */,
-				A962230717B2F0B100206572 /* AssignmentsViewController.m in Sources */,
 				A989086C17BBE6F000B7D2A6 /* PowerschoolViewController.m in Sources */,
+				A966DB8317E9342D002B0A61 /* PlannerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -683,13 +683,9 @@
 		A9CA30A9177A02ED00B11328 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Skaggs Catholic Center, LLC (FBRZUZZF5Q)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)",
-					"/Users/austintrujillo/Documents/Xcode\\ Projects/Juan\\ Diego",
-				);
+				FRAMEWORK_SEARCH_PATHS = "/Users/austintrujillo/Documents/Developer/Apps/Juan\\ Diego";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Juan Diego/Juan Diego-Prefix.pch";
 				"HEADER_SEARCH_PATHS[arch=*]" = /usr/include/libxml2;
@@ -705,13 +701,9 @@
 		A9CA30AA177A02ED00B11328 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Skaggs Catholic Center, LLC (FBRZUZZF5Q)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)",
-					"/Users/austintrujillo/Documents/Xcode\\ Projects/Juan\\ Diego",
-				);
+				FRAMEWORK_SEARCH_PATHS = "/Users/austintrujillo/Documents/Developer/Apps/Juan\\ Diego";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Juan Diego/Juan Diego-Prefix.pch";
 				INFOPLIST_FILE = "Juan Diego/Juan Diego-Info.plist";
