@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="13A584" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="8YX-ce-x5E">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A598" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="8YX-ce-x5E">
     <dependencies>
         <deployment version="1792" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
         <!--Home View Controller - First-->
@@ -121,6 +121,33 @@
             </objects>
             <point key="canvasLocation" x="1191" y="-931"/>
         </scene>
+        <!--Day - Item-->
+        <scene sceneID="yw4-mx-bPw">
+            <objects>
+                <viewController id="eI3-Fw-KsO" customClass="Day" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zlO-3T-Jzw">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ggs-Ii-dCK">
+                                <rect key="frame" x="113" y="147" width="95" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="60"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="WmA-9L-uuw"/>
+                    <connections>
+                        <outlet property="dayLabel" destination="Ggs-Ii-dCK" id="V7x-gi-0en"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GGP-bQ-7TO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="132" y="-521"/>
+        </scene>
         <!--Powerschool View Controller - PowerSchool-->
         <scene sceneID="Vlc-ei-ewI">
             <objects>
@@ -197,6 +224,7 @@
                         <segue destination="2bG-Nn-on5" kind="relationship" relationship="viewControllers" id="VWi-Ex-xYV"/>
                         <segue destination="HjI-Id-o54" kind="relationship" relationship="viewControllers" id="Pdl-Qy-gxZ"/>
                         <segue destination="7vS-te-fpg" kind="relationship" relationship="viewControllers" id="wRc-7G-y2z"/>
+                        <segue destination="eI3-Fw-KsO" kind="relationship" relationship="viewControllers" id="QNW-TQ-nLg"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FNP-y4-bzi" sceneMemberID="firstResponder"/>

@@ -14,6 +14,7 @@
     NSDate *StartDate;
     NSDate *EndDate;
     NSString *Description;
+    
 }
 
 @property (nonatomic, retain) NSString *Title;
@@ -21,5 +22,6 @@
 @property (nonatomic, retain) NSDate *EndDate;
 @property (nonatomic, retain) NSString *Description;
 
+@property (nonatomic, retain) NSString *Date;
 
 @end

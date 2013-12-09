@@ -27,6 +27,7 @@
 		A93EEB9617C2E09C005A8A3C /* youtube.png in Resources */ = {isa = PBXBuildFile; fileRef = A93EEB9517C2E09C005A8A3C /* youtube.png */; };
 		A93F8E1A17D2546B00E1D6B1 /* Handbook.pdf in Resources */ = {isa = PBXBuildFile; fileRef = A93F8E1917D2546B00E1D6B1 /* Handbook.pdf */; };
 		A94AC72D17BAA2CD008143A3 /* splashScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = A94AC72C17BAA2CD008143A3 /* splashScreen.png */; };
+		A9607C4C18104FB8004F109F /* Day.m in Sources */ = {isa = PBXBuildFile; fileRef = A9607C4B18104FB8004F109F /* Day.m */; };
 		A960C02C17B16740003ABDC3 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A960C02B17B16740003ABDC3 /* HomeViewController.m */; };
 		A966DB8317E9342D002B0A61 /* PlannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A966DB8217E9342D002B0A61 /* PlannerViewController.m */; };
 		A966DB8617EA0A49002B0A61 /* AddPlannerItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A966DB8517EA0A49002B0A61 /* AddPlannerItemViewController.m */; };
@@ -97,6 +98,8 @@
 		A93EEB9517C2E09C005A8A3C /* youtube.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = youtube.png; sourceTree = "<group>"; };
 		A93F8E1917D2546B00E1D6B1 /* Handbook.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Handbook.pdf; sourceTree = "<group>"; };
 		A94AC72C17BAA2CD008143A3 /* splashScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splashScreen.png; sourceTree = "<group>"; };
+		A9607C4A18104FB8004F109F /* Day.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Day.h; sourceTree = "<group>"; };
+		A9607C4B18104FB8004F109F /* Day.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Day.m; sourceTree = "<group>"; };
 		A960C02A17B16740003ABDC3 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		A960C02B17B16740003ABDC3 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		A966DB8117E9342D002B0A61 /* PlannerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlannerViewController.h; sourceTree = "<group>"; };
@@ -237,6 +240,8 @@
 			children = (
 				A960C02A17B16740003ABDC3 /* HomeViewController.h */,
 				A960C02B17B16740003ABDC3 /* HomeViewController.m */,
+				A9607C4A18104FB8004F109F /* Day.h */,
+				A9607C4B18104FB8004F109F /* Day.m */,
 				A92A5E3917B0437700F3AD31 /* Google Calendar */,
 			);
 			name = Home;
@@ -558,6 +563,7 @@
 				A92A5E3817B0437100F3AD31 /* ISO8601DateFormatter.m in Sources */,
 				A99CCDA817ACB43E00098F41 /* SocialIntegrationViewController.m in Sources */,
 				A966DB8617EA0A49002B0A61 /* AddPlannerItemViewController.m in Sources */,
+				A9607C4C18104FB8004F109F /* Day.m in Sources */,
 				A9CA3087177A02ED00B11328 /* AppDelegate.m in Sources */,
 				A960C02C17B16740003ABDC3 /* HomeViewController.m in Sources */,
 				A9CA3083177A02ED00B11328 /* main.m in Sources */,

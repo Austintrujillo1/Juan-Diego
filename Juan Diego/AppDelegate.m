@@ -23,8 +23,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   
-    [Parse setApplicationId:@"BAIjvNdRhkUPB88Ajg47Ppy8bV0hj0HQ3zgML2Ex"
-                  clientKey:@"ggF0i6emg3PLr0wZP8uqB0YVQRX15vg8FlCUplFz"];
+    #warning Change Parse Keys Before Submitting to Apple
+    
+    [Parse setApplicationId:@"s4YjmRLx7vaeKzRPHkrHyeFXetUvZig4kBRkbMZ9"
+                  clientKey:@"4mQciMfQDW44aYYsGytkmIC1e32VtMF1JDytv3PC"];
     
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
 

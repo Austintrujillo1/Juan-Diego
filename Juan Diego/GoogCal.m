@@ -10,6 +10,6 @@
 
 @implementation GoogCal
 
-@synthesize Title,Description, EndDate, StartDate;
+@synthesize Title,Description, EndDate, StartDate, Date;
 
 @end

@@ -10,6 +10,7 @@
 #import "ISO8601DateFormatter.h"
 #import <Parse/Parse.h>
 #import <MapKit/MapKit.h>
+#import "Day.h"
 
 @interface HomeViewController ()
 @end
@@ -79,7 +80,7 @@
     [_activityView startAnimating];
     
     [self performSelector:@selector(refreshButton:) withObject:nil afterDelay: 0.5];
-    
+        
 }
 
 
@@ -100,13 +101,12 @@
     NSString *dateToday = [formatter stringFromDate:[NSDate date]];     //get the date today
     
     PFQuery *query = [PFQuery queryWithClassName:@"Days"];      //Create Query
-    
     [query whereKey:@"Date" equalTo:dateToday];     //Set Query Constraints
     query.limit = 1;    //Set Query Length
     
     [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {    //Get First (and Only) Object From Query
         NSString *day = [object objectForKey:@"Day"];   //Create Object From Part of Array
-        NSLog(@"Day: %@", day);  //Log Day
+//        NSLog(@"Day: %@", day);  //Log Day
     
     _dayLabel.text = day;   //Set Label To Day
     _todayLabel.text = @"Day";
@@ -271,7 +271,7 @@
         
         NSDictionary *title = [event objectForKey:@"title"];
         googCalObj.Title = [title objectForKey:@"$t"];
-        NSLog(@"Lunch: %@", googCalObj.Title);
+//        NSLog(@"Lunch: %@", googCalObj.Title);
         
         // Convert string to date object
         NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
@@ -295,8 +295,8 @@
             NSDate *startDate = [formatter dateFromString:[dateDict objectForKey:@"startTime"]];
             formatter = nil;
             
-            googCalObj.EndDate = endDate; //[endDate addTimeInterval:-3600*6];
-            googCalObj.StartDate = startDate; //[startDate addTimeInterval:-3600*6];
+            googCalObj.EndDate = endDate;
+            googCalObj.StartDate = startDate;
             
         }
         
@@ -330,7 +330,7 @@
         
         NSDictionary *title = [event objectForKey:@"title"];
         googCalObj.Title = [title objectForKey:@"$t"];
-        NSLog(@"Event: %@", googCalObj.Title);
+//        NSLog(@"Event: %@", googCalObj.Title);
         
         // Convert string to date object
         NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
