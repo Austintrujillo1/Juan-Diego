@@ -11,6 +11,7 @@
 #import <Parse/Parse.h>
 #import <MapKit/MapKit.h>
 #import "Day.h"
+#import "Reachability.h"
 
 @interface HomeViewController ()
 @end
@@ -20,7 +21,6 @@
 
 
 @synthesize EventArray = _EventArray;
-@synthesize LunchArray = _LunchArray;
 @synthesize tableView = _tableView;
 @synthesize activityView = _activityView;
 @synthesize selectedRow;
@@ -29,7 +29,8 @@
 @synthesize infinativeLabel = _infinativeLabel;
 @synthesize todayLabel = _todayLabel;
 @synthesize lunchLabel = _lunchLabel;
-
+@synthesize logoImage = _logoImage;
+@synthesize dayDict;
 
     //      ********************
     //      * Status Bar Color *
@@ -42,6 +43,13 @@
     
 }
 
+
+- (NSString *) dataFilePath {
+    NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES);
+    NSString *documentDirectory = [path objectAtIndex:0];
+    return [documentDirectory stringByAppendingPathComponent:@"Today.plist"];
+}
+
     //      ******************
     //      * Refresh Button *
     //      ******************
@@ -49,14 +57,18 @@
 
 - (IBAction)refreshButton:(id)sender {
     
+    Day *getToday;
+    getToday = [[Day alloc] init];
+    
     //Refresh Items
-        
+    
     [self dayChecker];
-    [self LoadLunchData];
     [self preferredStatusBarStyle];
     [[UIApplication sharedApplication] setStatusBarHidden:NO];
     [self reloadTableview];
     [self startActivityIndicator:nil];
+    [self checkPlist:nil];
+    [getToday loadAllData];
     [self performSelector:@selector(stopActivityIndicator:) withObject:nil afterDelay: 0.9];
     
 }
@@ -77,10 +89,78 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     
-    [_activityView startAnimating];
     
-    [self performSelector:@selector(refreshButton:) withObject:nil afterDelay: 0.5];
+    internetReach = [Reachability reachabilityForInternetConnection];
+    [internetReach startNotifier];
+    
+    NetworkStatus netStatus = [internetReach currentReachabilityStatus];
+    
+    switch (netStatus){
+        case ReachableViaWWAN:{
+            
+            [_activityView startAnimating];
+            
+            [self reloadTableview];
+            
+            [self checkPlist:nil];
+            
+            [self performSelector:@selector(stopActivityIndicator:) withObject:nil afterDelay: 0.5];
+            
+            break;
+        }
+        case ReachableViaWiFi:{
+            
+            [_activityView startAnimating];
+            
+            [self reloadTableview];
+            
+            [self checkPlist:nil];
+            
+            [self performSelector:@selector(stopActivityIndicator:) withObject:nil afterDelay: 0.5];
+            
+            break;
+        }
+        case NotReachable:{
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert" message:@"Please connect to a WIFI network before starting. Functionality of this application will be limited." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            [alert show];
+            break;
+        }
+    }
+    
+}
+
+- (IBAction)checkPlist:(id)sender{
+    
+    Day *getToday;
+    getToday = [[Day alloc] init];
+    
+    NSString *filePath = [self dataFilePath];
+    
+    dayDict = [NSMutableDictionary dictionaryWithContentsOfFile:filePath];
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];    //Declare Formatter
+    [formatter setDateFormat:@"YYYY-MM-dd"];      //Format Date
+    NSString *dateToday = [formatter stringFromDate:[NSDate date]];     //get the date today
+    
+    
+    NSLog(@"Dict: %@", dayDict);
+    
+    if ([[dayDict objectForKey:@"Date"] isEqualToString:dateToday]) {
+        NSLog(@"Its Today");
         
+        _dayLabel.text = [dayDict objectForKey:@"Today"];
+        
+        [self dayChecker];
+    }
+    else{
+        NSLog(@"Its not Today, its %@", dateToday);
+        
+        [getToday loadAllData];
+        
+        [self viewWillAppear:YES];
+        
+    }
+    
 }
 
 
@@ -96,90 +176,75 @@
 
 - (void) dayChecker {
     
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];    //Declare Formatter
-    [formatter setDateFormat:@"MM/dd/YY"];      //Format Date
-    NSString *dateToday = [formatter stringFromDate:[NSDate date]];     //get the date today
-    
-    PFQuery *query = [PFQuery queryWithClassName:@"Days"];      //Create Query
-    [query whereKey:@"Date" equalTo:dateToday];     //Set Query Constraints
-    query.limit = 1;    //Set Query Length
-    
-    [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {    //Get First (and Only) Object From Query
-        NSString *day = [object objectForKey:@"Day"];   //Create Object From Part of Array
-//        NSLog(@"Day: %@", day);  //Log Day
-    
-    _dayLabel.text = day;   //Set Label To Day
     _todayLabel.text = @"Day";
     
     if ([_dayLabel.text isEqualToString:@"A"]) {    //A Day
+        _logoImage.hidden = TRUE;   //Hide Logo
         _infinativeLabel.text = @"Today is an"; //Infinative
+        _lunchday.textColor = [UIColor lightGrayColor]; //Set Lunch Color
         _dayLabel.textColor = [UIColor colorWithRed:244.0/255.0 green:136.0/255.0 blue:190.0/255.0 alpha:1]; //Pink Color
         _infinativeLabel.textColor = [UIColor blackColor];  //Black Color
         _todayLabel.text = @"Day";
     }
         
     else if ([_dayLabel.text isEqualToString:@"B"]) {   //B Day
+        _logoImage.hidden = TRUE;   //Hide Logo
         _infinativeLabel.text = @"Today is a";  //Infinative
+        _lunchday.textColor = [UIColor lightGrayColor]; //Set Lunch Color
         _dayLabel.textColor = [UIColor colorWithRed:73.0/255.0 green:134.0/255.0 blue:231.0/255.0 alpha:1]; //Blue Color
         _infinativeLabel.textColor = [UIColor blackColor];  //Black Color
         _todayLabel.text = @"Day";
     }
         
     else if ([_dayLabel.text isEqualToString:@"C"]) {   //C Day
+        _logoImage.hidden = TRUE;   //Hide Logo
         _infinativeLabel.text = @"Today is a";  //Infinative
+        _lunchday.textColor = [UIColor lightGrayColor]; //Set Lunch Color
         _dayLabel.textColor = [UIColor colorWithRed:255.0/255.0 green:204.0/255.0 blue:0.0/255.0 alpha:1]; //Yellow Color
         _infinativeLabel.textColor = [UIColor blackColor];  //Clear Color
         _todayLabel.text = @"Day";
     }
         
     else if ([_dayLabel.text isEqualToString:@"D"]) {   //D Day
+        _logoImage.hidden = TRUE;   //Hide Logo
+        _lunchday.textColor = [UIColor lightGrayColor]; //Set Lunch Color
         _infinativeLabel.text = @"Today is a";  //Infinative
         _dayLabel.textColor = [UIColor colorWithRed:0.0/255.0 green:203.0/255.0 blue:0.0/255.0 alpha:1]; //Green Color
         _infinativeLabel.textColor = [UIColor blackColor];  //Black Color
         _todayLabel.text = @"Day";
     }
+    
+    else if ([_dayLabel.text isEqualToString:@""]) {
+        _logoImage.hidden = FALSE;   //UNHide Logo
+        _infinativeLabel.textColor = [UIColor clearColor]; //Set Lunch Color
+        _dayLabel.textColor = [UIColor clearColor];  //clear Color
+        _todayLabel.text = @""; //Set Text to ""
+        _lunchday.textColor = [UIColor clearColor]; //Hide LunchDay
         
-    else if ([_dayLabel.text isEqualToString:@"No School"]) {   //No School
-        _infinativeLabel.text = @"There is";    //Infinative
-        _dayLabel.font = [UIFont systemFontOfSize:50.0];
-        _dayLabel.textColor = [UIColor colorWithRed:248.0/255.0 green:58.0/255.0 blue:34.0/255.0 alpha:1];  //Red Color
-        _infinativeLabel.textColor = [UIColor blackColor];  //Black Color
-        _todayLabel.text = @"Today";
     }
-        
-    else if ([_dayLabel.text isEqualToString:@"Weekend"]){  //Weekend
-        _dayLabel.textColor = [UIColor blackColor];  //Black Color
-        _infinativeLabel.textColor = [UIColor blackColor];  //Black Color
-        _infinativeLabel.text = @"It is the";
-        _todayLabel.text = @"";
-    }
-        
-        //Determine whether or not to get the lnch calendar
+    
+        //Determine whether or not to get the lunch calendar
         
     if([_dayLabel.text isEqualToString: @"A" ] || [_dayLabel.text isEqualToString: @"B" ] || [_dayLabel.text isEqualToString: @"C" ] || [_dayLabel.text isEqualToString: @"D"]){
         
         //If A,B,C,D day; Get Lunch
         
-        GoogCal *lunchLcl = (GoogCal *)[_LunchArray objectAtIndex:0];
-        NSString *todaysLunch = lunchLcl.Title;
+        NSString *todaysLunch = [dayDict objectForKey:@"Lunch"];
+        _lunchLabel.textColor = [UIColor blackColor];  //Black Color
         _lunchday.text = @"Lunch is";
         _lunchLabel.text = todaysLunch;
-            
-            
+ 
     }
+    else{
         
-    else if ([_dayLabel.text isEqualToString: @"No School" ] || [_dayLabel.text isEqualToString: @"Weekend" ]){
+        _lunchLabel.textColor = [UIColor clearColor];  //Black Color
         
-        //If Weekend or No School
-        
-        _lunchLabel.text = @"";
-        _lunchday.text = @"";
-            
     }
-
-    }];
     
-}
+
+};
+    
+
 
 #pragma mark - Table View Data Source
 
@@ -189,13 +254,11 @@
 
 }
 
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
     return [_EventArray count];    // Return the number of rows in the section.
 
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -218,6 +281,7 @@
     
     NSString *startDateStr = [dateFormat stringFromDate:eventLcl.StartDate];
     
+    cell.backgroundColor = [UIColor colorWithRed:237.0/255.0 green:242.0/255.0 blue:245.0/255.0 alpha:1];
     cell.textLabel.numberOfLines = 1;
     cell.textLabel.text = [NSString stringWithFormat:@"%@", eventLcl.Title ];
     cell.detailTextLabel.numberOfLines = 1;
@@ -231,7 +295,6 @@
 
 #pragma mark - Get GoogCal Data
 
-
 -(void)LoadCalendarData {   //Calendar Data
     
     dispatch_sync(kBgQueue, ^{
@@ -239,76 +302,6 @@
         [self performSelectorOnMainThread:@selector(fetchedData:) withObject:data waitUntilDone:YES];
     });
 }
-
-
--(void)LoadLunchData {      //Lunch Data
-    
-    dispatch_sync(kBgQueue, ^{
-        NSData* lunchData = [NSData dataWithContentsOfURL: LunchURL];
-        [self performSelectorOnMainThread:@selector(fetchedLunchData:) withObject:lunchData waitUntilDone:YES];
-    });
-}
-
-
-
-- (void)fetchedLunchData:(NSData *)responseData {       //Fetched Lunch Data
-    
-    _LunchArray = [[NSMutableArray alloc]init];
-    
-    //parse out the json data
-    NSError* error;
-    NSDictionary* json = [NSJSONSerialization
-                          JSONObjectWithData:responseData //1
-                          
-                          options:kNilOptions
-                          error:&error];
-    
-    NSDictionary* latestLoans = [json objectForKey:@"feed"]; //2d
-    NSArray* arrEvent = [latestLoans objectForKey:@"entry"];
-    
-    for (NSDictionary *event in arrEvent) {
-        GoogCal *googCalObj = [[GoogCal alloc]init];
-        
-        NSDictionary *title = [event objectForKey:@"title"];
-        googCalObj.Title = [title objectForKey:@"$t"];
-//        NSLog(@"Lunch: %@", googCalObj.Title);
-        
-        // Convert string to date object
-        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-        NSLocale *enUSPOSIXLocale;
-        enUSPOSIXLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
-        [dateFormat setLocale:enUSPOSIXLocale];
-        [dateFormat setDateFormat:@"yyyy'-'MM'-'dd'T'Z'"];
-        [dateFormat setDateFormat:@"'EEEE'"];
-        [dateFormat setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
-        
-        NSArray *dateArr = [event objectForKey:@"gd$when"];     //dates are stored in an array
-        
-        
-        for(NSDictionary *dateDict in dateArr) {
-            
-            NSLocale *enUSPOSIXLocale;
-            enUSPOSIXLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
-            ISO8601DateFormatter *formatter = [[ISO8601DateFormatter alloc] init];
-            
-            NSDate *endDate = [formatter dateFromString:[dateDict objectForKey:@"endTime"]];
-            NSDate *startDate = [formatter dateFromString:[dateDict objectForKey:@"startTime"]];
-            formatter = nil;
-            
-            googCalObj.EndDate = endDate;
-            googCalObj.StartDate = startDate;
-            
-        }
-        
-        NSDictionary *content = [event objectForKey:@"content"];
-        googCalObj.Description = [content objectForKey:@"$t"];
-        
-        [_LunchArray addObject:googCalObj];
-        
-    }
-    
-}
-
 
 - (void)fetchedData:(NSData *)responseData {        //Fetched Calendar Data
     
@@ -330,7 +323,6 @@
         
         NSDictionary *title = [event objectForKey:@"title"];
         googCalObj.Title = [title objectForKey:@"$t"];
-//        NSLog(@"Event: %@", googCalObj.Title);
         
         // Convert string to date object
         NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
@@ -366,8 +358,5 @@
     }
     
 }
-
-
-
 
 @end

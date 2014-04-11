@@ -9,12 +9,15 @@
 
 
 #import <UIKit/UIKit.h>
+#import "Day.h"
 
-
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@class Reachability;
+@interface AppDelegate : UIResponder <UIApplicationDelegate>{
+    
+    Reachability *internetReach;
+}
 
 @property (strong, nonatomic) UIWindow *window;
-
-
+@property (nonatomic, strong) Day *callDayClass;
 
 @end

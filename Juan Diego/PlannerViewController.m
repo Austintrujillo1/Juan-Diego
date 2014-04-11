@@ -65,7 +65,7 @@
     // Configure the cell with the textContent of the Post as the cell's text label
     
     cell.textLabel.text = [[assignmentsArray objectAtIndex:indexPath.row] objectForKey:@"Name"];
-    
+    cell.contentView.backgroundColor = [UIColor colorWithRed:237.0/255.0 green:242.0/255.0 blue:245.0/255.0 alpha:1];
     cell.detailTextLabel.text = [[assignmentsArray objectAtIndex:indexPath.row] objectForKey:@"Description"];
     
     return cell;

@@ -11,8 +11,6 @@
 		A9075B1717A9992F000C2134 /* eagle.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A9075B1617A9992F000C2134 /* eagle.mp3 */; };
 		A91CE55317A1C12000C5743C /* powerschoolLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = A91CE55217A1C12000C5743C /* powerschoolLogo.png */; };
 		A91CE55417A1C12000C5743C /* powerschoolLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = A91CE55217A1C12000C5743C /* powerschoolLogo.png */; };
-		A91CE55617A1C55000C5743C /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A91CE55517A1C55000C5743C /* Parse.framework */; };
-		A91CE55717A1C55000C5743C /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A91CE55517A1C55000C5743C /* Parse.framework */; };
 		A91CE55917A1C58000C5743C /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A91CE55817A1C58000C5743C /* AudioToolbox.framework */; };
 		A91CE55B17A1C58800C5743C /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A91CE55A17A1C58800C5743C /* CFNetwork.framework */; };
 		A91CE55D17A1C59C00C5743C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A91CE55C17A1C59C00C5743C /* CoreLocation.framework */; };
@@ -20,12 +18,15 @@
 		A91CE56117A1C5BB00C5743C /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A91CE56017A1C5BB00C5743C /* MobileCoreServices.framework */; };
 		A91CE56317A1C5C200C5743C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A91CE56217A1C5C200C5743C /* QuartzCore.framework */; };
 		A91CE56517A1C5CA00C5743C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A91CE56417A1C5CA00C5743C /* Security.framework */; };
-		A91CE56917A1C5DE00C5743C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A91CE56817A1C5DE00C5743C /* SystemConfiguration.framework */; };
 		A92A5E3617B0437100F3AD31 /* GoogCal.m in Sources */ = {isa = PBXBuildFile; fileRef = A92A5E3117B0437100F3AD31 /* GoogCal.m */; };
 		A92A5E3717B0437100F3AD31 /* GoogleCalenderReader-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A92A5E3217B0437100F3AD31 /* GoogleCalenderReader-Info.plist */; };
-		A92A5E3817B0437100F3AD31 /* ISO8601DateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = A92A5E3517B0437100F3AD31 /* ISO8601DateFormatter.m */; };
+		A92A5E3817B0437100F3AD31 /* ISO8601DateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = A92A5E3517B0437100F3AD31 /* ISO8601DateFormatter.m */; settings = {COMPILER_FLAGS = "-w"; }; };
 		A93EEB9617C2E09C005A8A3C /* youtube.png in Resources */ = {isa = PBXBuildFile; fileRef = A93EEB9517C2E09C005A8A3C /* youtube.png */; };
 		A93F8E1A17D2546B00E1D6B1 /* Handbook.pdf in Resources */ = {isa = PBXBuildFile; fileRef = A93F8E1917D2546B00E1D6B1 /* Handbook.pdf */; };
+		A941615218A93EEC00689A60 /* icon_ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = A941615018A93EEC00689A60 /* icon_ipad.png */; };
+		A941615318A93EEC00689A60 /* icon_ipadRetina.png in Resources */ = {isa = PBXBuildFile; fileRef = A941615118A93EEC00689A60 /* icon_ipadRetina.png */; };
+		A941615518A93F1E00689A60 /* spotlight_ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = A941615418A93F1E00689A60 /* spotlight_ipad.png */; };
+		A941615718A93F5200689A60 /* settings_ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = A941615618A93F5200689A60 /* settings_ipad.png */; };
 		A94AC72D17BAA2CD008143A3 /* splashScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = A94AC72C17BAA2CD008143A3 /* splashScreen.png */; };
 		A9607C4C18104FB8004F109F /* Day.m in Sources */ = {isa = PBXBuildFile; fileRef = A9607C4B18104FB8004F109F /* Day.m */; };
 		A960C02C17B16740003ABDC3 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A960C02B17B16740003ABDC3 /* HomeViewController.m */; };
@@ -34,6 +35,8 @@
 		A97AB45617A73DE8003DB7AB /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A97AB45417A73DE8003DB7AB /* Icon-Small@2x.png */; };
 		A97AB45D17A74124003DB7AB /* appIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A97AB45C17A74124003DB7AB /* appIcon@2x.png */; };
 		A97AB45F17A7415D003DB7AB /* appIconSpotlight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A97AB45E17A7415D003DB7AB /* appIconSpotlight@2x.png */; };
+		A980E93A18A2C98C00B43689 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A980E93918A2C98C00B43689 /* Parse.framework */; };
+		A9819808185631C900C5CDC2 /* iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9819807185631C900C5CDC2 /* iPad.storyboard */; };
 		A989086C17BBE6F000B7D2A6 /* PowerschoolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A989086B17BBE6F000B7D2A6 /* PowerschoolViewController.m */; };
 		A989087917BD2F1C00B7D2A6 /* phoneIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = A989087817BD2F1C00B7D2A6 /* phoneIcon.png */; };
 		A99CCD8417AAEB2500098F41 /* booksTabBarIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = A99CCD8117AAEB2500098F41 /* booksTabBarIcon.png */; };
@@ -50,6 +53,7 @@
 		A9A6218E17A9EB9400F352AA /* atdLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = A9A6218D17A9EB9400F352AA /* atdLogo.png */; };
 		A9A6219017A9EC3B00F352AA /* borderpx.png in Resources */ = {isa = PBXBuildFile; fileRef = A9A6218F17A9EC3B00F352AA /* borderpx.png */; };
 		A9A6219417A9EE5100F352AA /* parseLogo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A9A6219317A9EE5100F352AA /* parseLogo.jpg */; };
+		A9B651C718A924B800E1B33C /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9B651C618A924B800E1B33C /* Crashlytics.framework */; };
 		A9C888D817ADB6D80021DD21 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A9C888D717ADB6D80021DD21 /* Default-568h@2x.png */; };
 		A9CA3077177A02ED00B11328 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9CA3076177A02ED00B11328 /* Foundation.framework */; };
 		A9CA3079177A02ED00B11328 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9CA3078177A02ED00B11328 /* CoreGraphics.framework */; };
@@ -63,6 +67,9 @@
 		A9CA309B177A02ED00B11328 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9CA307A177A02ED00B11328 /* UIKit.framework */; };
 		A9CA30A3177A02ED00B11328 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A9CA30A1177A02ED00B11328 /* InfoPlist.strings */; };
 		A9CA30A5177A02ED00B11328 /* Juan_DiegoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9CA30A4177A02ED00B11328 /* Juan_DiegoTests.m */; };
+		A9D7763118A405D600569107 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A91CE56817A1C5DE00C5743C /* SystemConfiguration.framework */; };
+		A9E490C118A455C40049FD46 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E490C018A455C40049FD46 /* Reachability.m */; };
+		A9E63BB218A82C0800A3581B /* splashScreen_iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = A9E63BB118A82C0800A3581B /* splashScreen_iPad.png */; };
 		A9F0376D17AF5ABE00DF4AAB /* backgroungImage.png in Resources */ = {isa = PBXBuildFile; fileRef = A9F0376C17AF5ABE00DF4AAB /* backgroungImage.png */; };
 /* End PBXBuildFile section */
 
@@ -80,7 +87,6 @@
 		A902A7EB17E3A1B100A16863 /* juanDiegoLogo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = juanDiegoLogo.jpg; sourceTree = "<group>"; };
 		A9075B1617A9992F000C2134 /* eagle.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = eagle.mp3; sourceTree = "<group>"; };
 		A91CE55217A1C12000C5743C /* powerschoolLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = powerschoolLogo.png; sourceTree = "<group>"; };
-		A91CE55517A1C55000C5743C /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		A91CE55817A1C58000C5743C /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		A91CE55A17A1C58800C5743C /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		A91CE55C17A1C59C00C5743C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -97,6 +103,10 @@
 		A92A5E3517B0437100F3AD31 /* ISO8601DateFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISO8601DateFormatter.m; sourceTree = "<group>"; };
 		A93EEB9517C2E09C005A8A3C /* youtube.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = youtube.png; sourceTree = "<group>"; };
 		A93F8E1917D2546B00E1D6B1 /* Handbook.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Handbook.pdf; sourceTree = "<group>"; };
+		A941615018A93EEC00689A60 /* icon_ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_ipad.png; sourceTree = "<group>"; };
+		A941615118A93EEC00689A60 /* icon_ipadRetina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_ipadRetina.png; sourceTree = "<group>"; };
+		A941615418A93F1E00689A60 /* spotlight_ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spotlight_ipad.png; sourceTree = "<group>"; };
+		A941615618A93F5200689A60 /* settings_ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings_ipad.png; sourceTree = "<group>"; };
 		A94AC72C17BAA2CD008143A3 /* splashScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splashScreen.png; sourceTree = "<group>"; };
 		A9607C4A18104FB8004F109F /* Day.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Day.h; sourceTree = "<group>"; };
 		A9607C4B18104FB8004F109F /* Day.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Day.m; sourceTree = "<group>"; };
@@ -109,6 +119,8 @@
 		A97AB45417A73DE8003DB7AB /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
 		A97AB45C17A74124003DB7AB /* appIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "appIcon@2x.png"; sourceTree = "<group>"; };
 		A97AB45E17A7415D003DB7AB /* appIconSpotlight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "appIconSpotlight@2x.png"; sourceTree = "<group>"; };
+		A980E93918A2C98C00B43689 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		A9819807185631C900C5CDC2 /* iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = iPad.storyboard; path = ../iPad.storyboard; sourceTree = "<group>"; };
 		A989086A17BBE6F000B7D2A6 /* PowerschoolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PowerschoolViewController.h; sourceTree = "<group>"; };
 		A989086B17BBE6F000B7D2A6 /* PowerschoolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PowerschoolViewController.m; sourceTree = "<group>"; };
 		A989087817BD2F1C00B7D2A6 /* phoneIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = phoneIcon.png; sourceTree = "<group>"; };
@@ -129,6 +141,7 @@
 		A9A6218D17A9EB9400F352AA /* atdLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = atdLogo.png; sourceTree = "<group>"; };
 		A9A6218F17A9EC3B00F352AA /* borderpx.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = borderpx.png; sourceTree = "<group>"; };
 		A9A6219317A9EE5100F352AA /* parseLogo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = parseLogo.jpg; sourceTree = "<group>"; };
+		A9B651C618A924B800E1B33C /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		A9C888D717ADB6D80021DD21 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		A9CA3073177A02ED00B11328 /* Juan Diego.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Juan Diego.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9CA3076177A02ED00B11328 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -146,6 +159,9 @@
 		A9CA30A0177A02ED00B11328 /* Juan DiegoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Juan DiegoTests-Info.plist"; sourceTree = "<group>"; };
 		A9CA30A2177A02ED00B11328 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A9CA30A4177A02ED00B11328 /* Juan_DiegoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Juan_DiegoTests.m; sourceTree = "<group>"; };
+		A9E490BF18A455C40049FD46 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		A9E490C018A455C40049FD46 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		A9E63BB118A82C0800A3581B /* splashScreen_iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splashScreen_iPad.png; sourceTree = "<group>"; };
 		A9F0376C17AF5ABE00DF4AAB /* backgroungImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backgroungImage.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -154,19 +170,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9D7763118A405D600569107 /* SystemConfiguration.framework in Frameworks */,
+				A9B651C718A924B800E1B33C /* Crashlytics.framework in Frameworks */,
 				A99CCD9017AC18C100098F41 /* libxml2.dylib in Frameworks */,
 				A91CE55F17A1C5B200C5743C /* libz.1.1.3.dylib in Frameworks */,
 				A99CCD8B17AAEF4000098F41 /* MapKit.framework in Frameworks */,
-				A91CE56917A1C5DE00C5743C /* SystemConfiguration.framework in Frameworks */,
 				A91CE56517A1C5CA00C5743C /* Security.framework in Frameworks */,
 				A91CE56317A1C5C200C5743C /* QuartzCore.framework in Frameworks */,
 				A91CE56117A1C5BB00C5743C /* MobileCoreServices.framework in Frameworks */,
+				A980E93A18A2C98C00B43689 /* Parse.framework in Frameworks */,
 				A91CE55D17A1C59C00C5743C /* CoreLocation.framework in Frameworks */,
 				A9CA3079177A02ED00B11328 /* CoreGraphics.framework in Frameworks */,
 				A91CE55B17A1C58800C5743C /* CFNetwork.framework in Frameworks */,
 				A91CE55917A1C58000C5743C /* AudioToolbox.framework in Frameworks */,
 				A9CA307B177A02ED00B11328 /* UIKit.framework in Frameworks */,
-				A91CE55617A1C55000C5743C /* Parse.framework in Frameworks */,
 				A9CA3077177A02ED00B11328 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -177,7 +194,6 @@
 			files = (
 				A9CA3099177A02ED00B11328 /* XCTest.framework in Frameworks */,
 				A9CA309B177A02ED00B11328 /* UIKit.framework in Frameworks */,
-				A91CE55717A1C55000C5743C /* Parse.framework in Frameworks */,
 				A9CA309A177A02ED00B11328 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -231,6 +247,7 @@
 				A9CA3085177A02ED00B11328 /* AppDelegate.h */,
 				A9CA3086177A02ED00B11328 /* AppDelegate.m */,
 				A9CA3088177A02ED00B11328 /* Main.storyboard */,
+				A9819807185631C900C5CDC2 /* iPad.storyboard */,
 			);
 			name = AppDelegate/Storyboard;
 			sourceTree = "<group>";
@@ -304,6 +321,10 @@
 				A97AB45C17A74124003DB7AB /* appIcon@2x.png */,
 				A97AB45417A73DE8003DB7AB /* Icon-Small@2x.png */,
 				A97AB45E17A7415D003DB7AB /* appIconSpotlight@2x.png */,
+				A941615018A93EEC00689A60 /* icon_ipad.png */,
+				A941615118A93EEC00689A60 /* icon_ipadRetina.png */,
+				A941615418A93F1E00689A60 /* spotlight_ipad.png */,
+				A941615618A93F5200689A60 /* settings_ipad.png */,
 			);
 			name = "App Icons";
 			sourceTree = "<group>";
@@ -323,6 +344,7 @@
 		A99CCDA117AC627500098F41 /* UI Elements */ = {
 			isa = PBXGroup;
 			children = (
+				A9E63BB118A82C0800A3581B /* splashScreen_iPad.png */,
 				A93EEB9517C2E09C005A8A3C /* youtube.png */,
 				A989087817BD2F1C00B7D2A6 /* phoneIcon.png */,
 				A9F0376C17AF5ABE00DF4AAB /* backgroungImage.png */,
@@ -366,6 +388,9 @@
 		A9CA3075177A02ED00B11328 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A9B651C618A924B800E1B33C /* Crashlytics.framework */,
+				A9E490C218A455D20049FD46 /* Reachability */,
+				A980E93918A2C98C00B43689 /* Parse.framework */,
 				A99CCD8F17AC18C100098F41 /* libxml2.dylib */,
 				A99CCD8A17AAEF4000098F41 /* MapKit.framework */,
 				A91CE56817A1C5DE00C5743C /* SystemConfiguration.framework */,
@@ -376,7 +401,6 @@
 				A91CE55C17A1C59C00C5743C /* CoreLocation.framework */,
 				A91CE55A17A1C58800C5743C /* CFNetwork.framework */,
 				A91CE55817A1C58000C5743C /* AudioToolbox.framework */,
-				A91CE55517A1C55000C5743C /* Parse.framework */,
 				A9CA3076177A02ED00B11328 /* Foundation.framework */,
 				A9CA3078177A02ED00B11328 /* CoreGraphics.framework */,
 				A9CA307A177A02ED00B11328 /* UIKit.framework */,
@@ -429,6 +453,16 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		A9E490C218A455D20049FD46 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				A9E490BF18A455C40049FD46 /* Reachability.h */,
+				A9E490C018A455C40049FD46 /* Reachability.m */,
+			);
+			name = Reachability;
+			path = "Juan Diego";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -439,6 +473,7 @@
 				A9CA306F177A02ED00B11328 /* Sources */,
 				A9CA3070177A02ED00B11328 /* Frameworks */,
 				A9CA3071177A02ED00B11328 /* Resources */,
+				A9B651C518A9248600E1B33C /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -515,6 +550,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A91CE55317A1C12000C5743C /* powerschoolLogo.png in Resources */,
+				A9E63BB218A82C0800A3581B /* splashScreen_iPad.png in Resources */,
 				A99CCD8517AAEB2500098F41 /* homeTabBarIcon.png in Resources */,
 				A97AB45F17A7415D003DB7AB /* appIconSpotlight@2x.png in Resources */,
 				A9F0376D17AF5ABE00DF4AAB /* backgroungImage.png in Resources */,
@@ -524,16 +560,21 @@
 				A902A7EC17E3A1B100A16863 /* juanDiegoLogo.jpg in Resources */,
 				A9075B1717A9992F000C2134 /* eagle.mp3 in Resources */,
 				A93EEB9617C2E09C005A8A3C /* youtube.png in Resources */,
+				A941615518A93F1E00689A60 /* spotlight_ipad.png in Resources */,
 				A97AB45D17A74124003DB7AB /* appIcon@2x.png in Resources */,
 				A97AB45617A73DE8003DB7AB /* Icon-Small@2x.png in Resources */,
 				A9A6219417A9EE5100F352AA /* parseLogo.jpg in Resources */,
 				A92A5E3717B0437100F3AD31 /* GoogleCalenderReader-Info.plist in Resources */,
+				A941615718A93F5200689A60 /* settings_ipad.png in Resources */,
 				A94AC72D17BAA2CD008143A3 /* splashScreen.png in Resources */,
 				A9C888D817ADB6D80021DD21 /* Default-568h@2x.png in Resources */,
+				A941615218A93EEC00689A60 /* icon_ipad.png in Resources */,
 				A99CCDAE17ACCB1B00098F41 /* facebookButton.png in Resources */,
 				A99CCD8617AAEB2500098F41 /* pencilTabBarIcon.png in Resources */,
+				A9819808185631C900C5CDC2 /* iPad.storyboard in Resources */,
 				A93F8E1A17D2546B00E1D6B1 /* Handbook.pdf in Resources */,
 				A9CA3081177A02ED00B11328 /* InfoPlist.strings in Resources */,
+				A941615318A93EEC00689A60 /* icon_ipadRetina.png in Resources */,
 				A9CA308A177A02ED00B11328 /* Main.storyboard in Resources */,
 				A99CCD8417AAEB2500098F41 /* booksTabBarIcon.png in Resources */,
 				A99CCDB017ACCB1B00098F41 /* TwitterButton.png in Resources */,
@@ -552,11 +593,28 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		A9B651C518A9248600E1B33C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Crashlytics.framework/run 4f6a4f5bc9521d13ef17e4ab9bf43aadaabedd24 df7b9e02d9848dd5b090c3fe719e2680ce6244ec6518e4e5a0877d2c3ef2df72";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A9CA306F177A02ED00B11328 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9E490C118A455C40049FD46 /* Reachability.m in Sources */,
 				A9A6218C17A9E45B00F352AA /* HandbookViewController.m in Sources */,
 				A99CCD8917AAEC7000098F41 /* InfoViewController.m in Sources */,
 				A92A5E3617B0437100F3AD31 /* GoogCal.m in Sources */,
@@ -689,7 +747,8 @@
 		A9CA30A9177A02ED00B11328 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Skaggs Catholic Center, LLC (FBRZUZZF5Q)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "/Users/austintrujillo/Documents/Developer/Apps/Juan\\ Diego";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -698,8 +757,8 @@
 				INFOPLIST_FILE = "Juan Diego/Juan Diego-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				TARGETED_DEVICE_FAMILY = 1;
+				PROVISIONING_PROFILE = "D0624E5B-8B54-44A4-BD73-1425EA7517E1";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -707,7 +766,8 @@
 		A9CA30AA177A02ED00B11328 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Skaggs Catholic Center, LLC (FBRZUZZF5Q)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "/Users/austintrujillo/Documents/Developer/Apps/Juan\\ Diego";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -715,8 +775,8 @@
 				INFOPLIST_FILE = "Juan Diego/Juan Diego-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				TARGETED_DEVICE_FAMILY = 1;
+				PROVISIONING_PROFILE = "4501EF17-4C56-4725-A419-7B4083C93E67";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -724,13 +784,9 @@
 		A9CA30AC177A02ED00B11328 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Juan Diego.app/Juan Diego";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(SYSTEM_APPS_DIR)/Xcode5-DP2.app/Contents/Developer/Library/Frameworks",
-					"$(SRCROOT)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Juan Diego/Juan Diego-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -747,13 +803,9 @@
 		A9CA30AD177A02ED00B11328 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Juan Diego.app/Juan Diego";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(SYSTEM_APPS_DIR)/Xcode5-DP2.app/Contents/Developer/Library/Frameworks",
-					"$(SRCROOT)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Juan Diego/Juan Diego-Prefix.pch";
 				INFOPLIST_FILE = "Juan DiegoTests/Juan DiegoTests-Info.plist";

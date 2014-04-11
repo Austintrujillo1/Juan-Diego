@@ -10,85 +10,94 @@
 
 #import <Parse/Parse.h>
 #import "AppDelegate.h"
+#import "Day.h"
 #import "PowerschoolViewController.h"
-
+#import "Reachability.h"
+#import <Crashlytics/Crashlytics.h>
 
 @implementation AppDelegate
 
-
-    //      ************************************
-    //      * Application Did Finish Launching *
-    //      ************************************
-
-
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-  
-    #warning Change Parse Keys Before Submitting to Apple
+- (NSString *) dataFilePath {       //Get "Today.plist" Filepath
     
-    [Parse setApplicationId:@"s4YjmRLx7vaeKzRPHkrHyeFXetUvZig4kBRkbMZ9"
-                  clientKey:@"4mQciMfQDW44aYYsGytkmIC1e32VtMF1JDytv3PC"];
+    NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES);
+    NSString *documentDirectory = [path objectAtIndex:0];
+    return [documentDirectory stringByAppendingPathComponent:@"Today.plist"];
     
-    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+}
 
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {      //Did Finish Launching With Options
+    
+    //Set Plist Elements to ""
+    NSMutableDictionary *plistToWrite = [NSMutableDictionary dictionary];
+    
+    [plistToWrite setObject:@"" forKey:@"Lunch"];
+    [plistToWrite setObject:@"" forKey:@"Today"];
+    [plistToWrite setObject:@"" forKey:@"Date"];
+    [plistToWrite writeToFile:[self dataFilePath] atomically:YES];
+    
+    //Set Parse IDs
+    [Parse setApplicationId:@"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+                  clientKey:@"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"];
+    
+    //Register For Push
     [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge|
      UIRemoteNotificationTypeAlert|
      UIRemoteNotificationTypeSound];
+    
+    //Crash Reports: www.crashlytics.com
+    [Crashlytics startWithAPIKey:@"4f6a4f5bc9521d13ef17e4ab9bf43aadaabedd24"];
     
     return YES;
     
 }
 
 
-    //      *********************
-    //      * Register For Push *
-    //      *********************
-
-
-- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)newDeviceToken {
-    
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)newDeviceToken {        //Did Register For Remote Notifications
     [PFPush storeDeviceToken:newDeviceToken];
     [PFPush subscribeToChannelInBackground:@"" target:self selector:@selector(subscribeFinished:error:)];
-
 }
 
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {        //Did Fail To Register For Remote Notifications
+    if (error.code == 3010) {
+        NSLog(@"Push notifications are not supported in the iOS Simulator.");
+    } else {
+        // show some alert or otherwise handle the failure to register.
+        NSLog(@"application:didFailToRegisterForRemoteNotificationsWithError: %@", error);
+	}
+}
 
-    //      *************************
-    //      * Register Device Token *
-    //      *************************
-
-
-
-- (void)subscribeFinished:(NSNumber *)result error:(NSError *)error {
+- (void)application:(UIApplication *)application
+didReceiveRemoteNotification:(NSDictionary *)userInfo {        //Did Recieve Remote Notification
     
+    if (application.applicationState == UIApplicationStateInactive) {
+        [PFAnalytics trackAppOpenedWithRemoteNotificationPayload:userInfo];
+    }
+}
+
+- (void)subscribeFinished:(NSNumber *)result error:(NSError *)error {        //Parse Subscription Finished
     if ([result boolValue]) {
-        NSLog(@"Parse successfully subscribed to push notifications on the broadcast channel.");
-    }
-    
-    else {
-        NSLog(@"Parse failed to subscribe to push notifications on the broadcast channel.");
+        NSLog(@"Juan Diego successfully subscribed to push notifications on the broadcast channel.");
+    } else {
+        NSLog(@"Juan Diego failed to subscribe to push notifications on the broadcast channel.");
     }
 }
 
 
-    //      *************************
-    //      * Clear Badge Upon Open *
-    //      *************************
-
-
--(void)applicationWillEnterForeground:(UIApplication *)application {
+-(void)applicationWillEnterForeground:(UIApplication *)application {        //Clear Badge
     
     [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
     
 }
 
 
-- (void) applicationDidBecomeActive:(UIApplication *)application{
+- (void) applicationDidBecomeActive:(UIApplication *)application{        //Clear Badge
+    
     
     [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
     
 }
 
--(void)applicationDidFinishLaunching:(UIApplication *)application {
+-(void)applicationDidFinishLaunching:(UIApplication *)application {        //Clear Badge
     
     [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
     

@@ -15,7 +15,6 @@
 
 @implementation SocialIntegrationViewController
 
-
 - (IBAction)facebookIntegration:(id)sender{
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"fb://profile/310627345673242"]];      //Open Facebook app with profile
 }
