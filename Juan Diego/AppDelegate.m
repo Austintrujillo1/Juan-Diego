@@ -13,7 +13,6 @@
 #import "Day.h"
 #import "PowerschoolViewController.h"
 #import "Reachability.h"
-#import <Crashlytics/Crashlytics.h>
 
 @implementation AppDelegate
 
@@ -36,16 +35,14 @@
     [plistToWrite writeToFile:[self dataFilePath] atomically:YES];
     
     //Set Parse IDs
-    [Parse setApplicationId:@"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
-                  clientKey:@"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"];
+    [Parse setApplicationId:@"BAIjvNdRhkUPB88Ajg47Ppy8bV0hj0HQ3zgML2Ex"
+                  clientKey:@"ggF0i6emg3PLr0wZP8uqB0YVQRX15vg8FlCUplFz"];
     
     //Register For Push
     [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge|
      UIRemoteNotificationTypeAlert|
      UIRemoteNotificationTypeSound];
     
-    //Crash Reports: www.crashlytics.com
-    [Crashlytics startWithAPIKey:@"4f6a4f5bc9521d13ef17e4ab9bf43aadaabedd24"];
     
     return YES;
     

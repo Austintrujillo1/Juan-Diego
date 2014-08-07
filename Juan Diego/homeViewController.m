@@ -31,6 +31,10 @@
 @synthesize lunchLabel = _lunchLabel;
 @synthesize logoImage = _logoImage;
 @synthesize dayDict;
+@synthesize breakArray;
+@synthesize boolString = _boolString;
+@synthesize todaysDate = _todaysDate;
+@synthesize summerLabel = _summerLabel;
 
     //      ********************
     //      * Status Bar Color *
@@ -67,7 +71,7 @@
     [[UIApplication sharedApplication] setStatusBarHidden:NO];
     [self reloadTableview];
     [self startActivityIndicator:nil];
-    [self checkPlist:nil];
+    [self checkBreaks];
     [getToday loadAllData];
     [self performSelector:@selector(stopActivityIndicator:) withObject:nil afterDelay: 0.9];
     
@@ -89,6 +93,7 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     
+    [self checkBreaks];
     
     internetReach = [Reachability reachabilityForInternetConnection];
     [internetReach startNotifier];
@@ -102,7 +107,7 @@
             
             [self reloadTableview];
             
-            [self checkPlist:nil];
+            [self checkBreaks];
             
             [self performSelector:@selector(stopActivityIndicator:) withObject:nil afterDelay: 0.5];
             
@@ -114,7 +119,7 @@
             
             [self reloadTableview];
             
-            [self checkPlist:nil];
+            [self checkBreaks];
             
             [self performSelector:@selector(stopActivityIndicator:) withObject:nil afterDelay: 0.5];
             
@@ -129,6 +134,34 @@
     
 }
 
+- (void) checkBreaks {
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"Miscellaneous"];      //Create Query
+    
+    [query addDescendingOrder:@"createdAt"];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        
+        if (!error) {
+            
+            breakArray = objects;
+            
+            NSLog(@"BA: %@", breakArray);
+            
+            PFObject *breakResults = [breakArray objectAtIndex:0];
+            
+            _boolString = [breakResults objectForKey:@"BOOL"];
+            
+            [self checkPlist:nil];
+
+            
+        }
+    }];
+    
+
+}
+
+
 - (IBAction)checkPlist:(id)sender{
     
     Day *getToday;
@@ -142,12 +175,28 @@
     [formatter setDateFormat:@"YYYY-MM-dd"];      //Format Date
     NSString *dateToday = [formatter stringFromDate:[NSDate date]];     //get the date today
     
+    NSLog(@"BREAKMODE: %@", _boolString);
     
     NSLog(@"Dict: %@", dayDict);
+
     
-    if ([[dayDict objectForKey:@"Date"] isEqualToString:dateToday]) {
-        NSLog(@"Its Today");
+    if ([_boolString isEqualToString:@"TRUE"]) {
         
+        _summerLabel.hidden = TRUE;   //UNHide Logo
+        
+        _todaysDate = dateToday;
+    }
+    else if ([_boolString isEqualToString:@"FALSE"]){
+        
+        _summerLabel.hidden = FALSE;   //UNHide Logo
+        
+        _todaysDate = [dayDict objectForKey:@"Date"];
+    }
+    
+    if ([_todaysDate isEqualToString:dateToday]) {
+        
+        NSLog(@"Its Today");
+    
         _dayLabel.text = [dayDict objectForKey:@"Today"];
         
         [self dayChecker];
@@ -177,7 +226,7 @@
 - (void) dayChecker {
     
     _todayLabel.text = @"Day";
-    
+
     if ([_dayLabel.text isEqualToString:@"A"]) {    //A Day
         _logoImage.hidden = TRUE;   //Hide Logo
         _infinativeLabel.text = @"Today is an"; //Infinative

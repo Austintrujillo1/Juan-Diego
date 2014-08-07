@@ -31,6 +31,8 @@
 @property (nonatomic, retain) NSMutableArray *dDayArray;
 @property (nonatomic, retain) NSMutableArray *lunchArray;
 
+
+
 @property (nonatomic, strong) NSDictionary *ADateDict;
 @property (nonatomic, strong) NSDictionary *BDateDict;
 @property (nonatomic, strong) NSDictionary *CDateDict;

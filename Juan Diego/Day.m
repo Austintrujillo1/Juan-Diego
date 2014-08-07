@@ -20,6 +20,8 @@
 @synthesize dDayArray = _dDayArray;
 @synthesize lunchArray = _lunchArray;
 
+
+
 @synthesize ADateDict;
 @synthesize BDateDict;
 @synthesize CDateDict;
@@ -29,6 +31,8 @@
 @synthesize indexInt;
 
 @synthesize todayString = _todayString;
+
+
 
 - (NSString *) dataFilePath {
     NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES);
@@ -44,12 +48,12 @@
     [self LoadCData];
     [self LoadDData];
     [self LoadLunchData];
-    
+        
     [self logData:nil];
-    
 }
 
 #pragma mark - Get GoogCal Data
+
 
 -(void)LoadAData {   //Calendar Data
     
@@ -274,6 +278,8 @@
     
 }
 
+
+
 - (IBAction)logData:(id)sender{
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];    //Declare Formatter
@@ -342,5 +348,6 @@
     [plistToWrite writeToFile:[self dataFilePath] atomically:YES];
     
 }
+ 
 
 @end

@@ -37,10 +37,14 @@
 @property (nonatomic, strong) IBOutlet UIImageView *logoImage;
 @property (nonatomic, strong) IBOutlet UIActivityIndicatorView *activityView;
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) IBOutlet UILabel *summerLabel;
 
 @property (nonatomic, retain) NSMutableArray *EventArray;
 @property (nonatomic, assign) NSInteger selectedRow;
 @property (nonatomic, strong) NSMutableDictionary *dayDict;
+@property (nonatomic, strong) NSString *boolString;
+@property (nonatomic, retain) NSArray *breakArray;
+@property (nonatomic, strong) NSString *todaysDate;
 
 -(void)LoadCalendarData;
 
